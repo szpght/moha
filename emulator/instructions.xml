@@ -9,7 +9,7 @@
   <Author>Paweł</Author>
   <LastAuthor>Paweł</LastAuthor>
   <Created>2019-03-23T17:57:47Z</Created>
-  <LastSaved>2019-03-23T18:43:24Z</LastSaved>
+  <LastSaved>2019-03-23T21:38:34Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1170,6 +1170,7 @@
    <Row>
     <Cell><Data ss:Type="String">jmpa</Data></Cell>
     <Cell><Data ss:Type="String">00011010xxxxxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">ldi.b</Data></Cell>
@@ -1214,6 +1215,7 @@
    <Row>
     <Cell><Data ss:Type="String">jmp</Data></Cell>
     <Cell><Data ss:Type="String">00100101AAAAxxxx</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">and</Data></Cell>
@@ -1265,6 +1267,7 @@
    <Row>
     <Cell><Data ss:Type="String">div</Data></Cell>
     <Cell><Data ss:Type="String">00110001AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">udiv</Data></Cell>
@@ -1322,43 +1325,52 @@
    <Row>
     <Cell><Data ss:Type="String">beq</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">110000vvvvvvvvvv</Data></Cell>
-    <Cell ss:Formula="=+R[-11]C[3]"><Data ss:Type="Number">0</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">bne</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">110001vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">blt</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">110010vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">bgt</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">110011vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">bltu</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">110100vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">bgtu</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">110101vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">bge</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">110110vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">ble</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">110111vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">bgeu</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">111000vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">bleu</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">111001vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -1368,12 +1380,10 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Selected/>
-   <TopRowVisible>40</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>59</ActiveRow>
-     <ActiveCol>2</ActiveCol>
+     <ActiveRow>14</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

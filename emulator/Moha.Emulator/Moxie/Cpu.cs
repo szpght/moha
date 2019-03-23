@@ -48,6 +48,8 @@ namespace Moha.Emulator.Moxie
             var instruction = _decoder.Decode(_memory[Ip]);
             Ip++;
 
+            int signedA, signedB;
+            uint unsignedA, unsignedB;
             switch (instruction.Opcode)
             {
                 case Opcode.And:
@@ -69,19 +71,71 @@ namespace Moha.Emulator.Moxie
                 case Opcode.Beq:
                     if (CompareStatusUnsigned == 0)
                     {
-                        Ip += instruction.Value;
+                        Ip = BranchNewIp(instruction.Value);
                     }
                     break;
 
-                case Opcode.Cmp:
-                    var a = Registers[instruction.RegisterA];
-                    var b = Registers[instruction.RegisterB];
-                    var signedA = (int)a;
-                    CompareStatusUnsigned = a.CompareTo(b);
-                    CompareStatusSigned = signedA.CompareTo((int)b);
+                case Opcode.Bge:
+                    if (CompareStatusSigned >= 0)
+                    {
+                        Ip = BranchNewIp(instruction.Value);
+                    }
                     break;
 
-                case Opcode.Nop:
+                case Opcode.Bgeu:
+                    if (CompareStatusUnsigned >= 0)
+                    {
+                        Ip = BranchNewIp(instruction.Value);
+                    }
+                    break;
+
+                case Opcode.Bgt:
+                    if (CompareStatusSigned > 0)
+                    {
+                        Ip = BranchNewIp(instruction.Value);
+                    }
+                    break;
+
+                case Opcode.Bgtu:
+                    if (CompareStatusUnsigned > 0)
+                    {
+                        Ip = BranchNewIp(instruction.Value);
+                    }
+                    break;
+
+                case Opcode.Ble:
+                    if (CompareStatusSigned <= 0)
+                    {
+                        Ip = BranchNewIp(instruction.Value);
+                    }
+                    break;
+
+                case Opcode.Bleu:
+                    if (CompareStatusUnsigned <= 0)
+                    {
+                        Ip = BranchNewIp(instruction.Value);
+                    }
+                    break;
+
+                case Opcode.Blt:
+                    if (CompareStatusSigned < 0)
+                    {
+                        Ip = BranchNewIp(instruction.Value);
+                    }
+                    break;
+
+                case Opcode.Bltu:
+                    if (CompareStatusUnsigned < 0)
+                    {
+                        Ip = BranchNewIp(instruction.Value);
+                    }
+                    break;
+
+                case Opcode.Bne:
+                    if (CompareStatusUnsigned != 0)
+                    {
+                        Ip = BranchNewIp(instruction.Value);
+                    }
                     break;
 
                 case Opcode.Brk:
@@ -89,16 +143,56 @@ namespace Moha.Emulator.Moxie
                     Console.ReadLine();
                     break;
 
-                case Opcode.Inc:
-                    Registers[instruction.RegisterA] = (uint)(Registers[instruction.RegisterA] + instruction.Value);
+                case Opcode.Cmp:
+                    unsignedA = Registers[instruction.RegisterA];
+                    unsignedB = Registers[instruction.RegisterB];
+                    signedA = (int)unsignedA;
+                    signedB = (int)unsignedB;
+                    CompareStatusUnsigned = unsignedA.CompareTo(unsignedB);
+                    CompareStatusSigned = signedA.CompareTo(signedB);
                     break;
 
                 case Opcode.Dec:
                     Registers[instruction.RegisterA] = (uint)(Registers[instruction.RegisterA] - instruction.Value);
                     break;
 
+                case Opcode.Div:
+                    signedA = (int)Registers[instruction.RegisterA];
+                    signedB = (int)Registers[instruction.RegisterB];
+                    if (signedB == 0)
+                    {
+                        ExecutionException.Throw(ExecutionError.DivisionByZero);
+                    }
+                    else if (signedA == int.MinValue && signedB == -1)
+                    {
+                        unchecked
+                        {
+                            Registers[instruction.RegisterA] = (uint)int.MinValue;
+                        }
+                    }
+                    else
+                    {
+                        Registers[instruction.RegisterA] = (uint)(signedA / signedB);
+                    }
+                    break;
+
                 case Opcode.Gsr:
                     Registers[instruction.RegisterA] = SpecialRegisters[instruction.Value];
+                    break;
+
+                case Opcode.Inc:
+                    Registers[instruction.RegisterA] = (uint)(Registers[instruction.RegisterA] + instruction.Value);
+                    break;
+
+                case Opcode.Jmp:
+                    Jump(Registers[instruction.RegisterA]);
+                    break;
+
+                case Opcode.Jmpa:
+                    Jump(_memory.GetLong(Ip));
+                    break;
+
+                case Opcode.Nop:
                     break;
 
                 case Opcode.Ssr:
@@ -109,6 +203,21 @@ namespace Moha.Emulator.Moxie
                     ExecutionException.Throw(ExecutionError.IllegalOpcode);
                     break;
             }
+        }
+
+        private void Jump(uint address)
+        {
+            if (address % 2 != 0)
+            {
+                ExecutionException.Throw(ExecutionError.JumpToUnalignedAddress);
+            }
+
+            Ip = (int)(address / 2);
+        }
+
+        private int BranchNewIp(int offset)
+        {
+            return Ip + offset;
         }
     }
 }

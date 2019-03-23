@@ -27,7 +27,14 @@ namespace Moha.Emulator.Moxie
             casted.CopyTo(destination);
         }
 
-        private static void CheckAlignment(long offset, string name)
+        public uint GetLong(int index)
+        {
+            var memoryAreaWithTheLong = _memory.AsSpan(index, 4);
+            var castedMemory = MemoryMarshal.Cast<ushort, uint>(memoryAreaWithTheLong);
+            return castedMemory[0];
+        }
+
+        public void CheckAlignment(long offset, string name)
         {
             if (offset % 2 > 0)
             {
