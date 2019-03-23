@@ -1,0 +1,1383 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+ <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <Author>Paweł</Author>
+  <LastAuthor>Paweł</LastAuthor>
+  <Created>2019-03-23T17:57:47Z</Created>
+  <LastSaved>2019-03-23T18:43:24Z</LastSaved>
+  <Version>16.00</Version>
+ </DocumentProperties>
+ <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
+  <AllowPNG/>
+ </OfficeDocumentSettings>
+ <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+  <WindowHeight>12195</WindowHeight>
+  <WindowWidth>14370</WindowWidth>
+  <WindowTopX>0</WindowTopX>
+  <WindowTopY>0</WindowTopY>
+  <ActiveSheet>1</ActiveSheet>
+  <ProtectStructure>False</ProtectStructure>
+  <ProtectWindows>False</ProtectWindows>
+ </ExcelWorkbook>
+ <Styles>
+  <Style ss:ID="Default" ss:Name="Normal">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:CharSet="238" x:Family="Swiss" ss:Size="11"
+    ss:Color="#000000"/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s63">
+   <Alignment ss:Vertical="Center" ss:WrapText="1"/>
+   <Font ss:FontName="Arial Unicode MS" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s65">
+   <Alignment ss:Horizontal="Right" ss:Vertical="Center" ss:WrapText="1"/>
+   <Font ss:FontName="Arial Unicode MS" ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s67">
+   <Alignment ss:Vertical="Center"/>
+   <Font ss:FontName="Calibri" x:CharSet="238" x:Family="Swiss" ss:Size="18"
+    ss:Color="#000000" ss:Bold="1"/>
+  </Style>
+  <Style ss:ID="s68">
+   <Font ss:FontName="Consolas" x:CharSet="238" x:Family="Modern" ss:Size="11"
+    ss:Color="#000000"/>
+  </Style>
+  <Style ss:ID="s71">
+   <Font ss:FontName="Consolas" x:CharSet="238" x:Family="Modern" ss:Size="11"
+    ss:Color="#000000"/>
+   <Interior ss:Color="#FFF2CC" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s78">
+   <Font ss:FontName="Consolas" x:CharSet="238" x:Family="Modern" ss:Size="11"
+    ss:Color="#000000"/>
+   <Interior ss:Color="#E2EFDA" ss:Pattern="Solid"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Arkusz1">
+  <Table ss:ExpandedColumnCount="2" ss:ExpandedRowCount="271" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">and</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="3">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Logical and. Performs a logical and operation on the contents of registers </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> and </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> and stores the result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">add</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="7">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Add, long. Adds the contents of registers </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> and </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> and stores the result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ashl</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="11">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Arithmetic shift left. Performs an arithmetic shift left of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> byt </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> bits and stores the result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ashr</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="15">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Arithmetic shift right. Performs an arithmetic shift right of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> byt </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> bits and stores the result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">beq</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="19">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Branch if equal. If the results of the last </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">cmp</Font><Font
+       html:Color="#000000"> demonstrated that </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> is equal to </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000">, branch to the address computed by adding the signed 10-bit immediate value shifted to the left by 1 to the program counter. The branch is relative to the start of this instruction.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">bge</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="23">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Branch if greater than or equal. If the results of the last </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">cmp</Font><Font
+       html:Color="#000000"> demonstrated that the signed 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> is greater than or equal to the signed 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000">, branch to the address computed by adding the signed 10-bit immediate value shifted to the left by 1 to the program counter. The branch is relative to the address of this instruction.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">bgeu</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="27">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Branch if greater than or equal, unsigned. If the results of the last </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">cmp</Font><Font
+       html:Color="#000000"> demonstrated that the unsigned 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> is greater than or equal to the unsigned 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000">, branch to the address computed by adding the signed 10-bit immediate value shifted to the left by 1 bit to the program counter. The branch is relative to the address of this instruction.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">bgt</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="31">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Branch if greater than. If the results of the last </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">cmp</Font><Font
+       html:Color="#000000"> demonstrated that the signed 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> is greater than the signed 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000">, branch to the address computed by adding the signed 10-bit immediate value shifted to the left by 1 bit to the program counter. The branch is relative to the address of this instruction.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">bgtu</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="35">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Branch if greater than, unsigned. If the results of the last </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">cmp</Font><Font
+       html:Color="#000000"> demonstrated that the unsigned 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> is greater than the unsigned 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000">, branch to the address computed by the adding the signed 10-bit immediate value shifted to the left by 1 bit to the program counter. The branch is relative to the address of this instruction.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ble</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="39">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Branch if less than or equal. If the results of the last </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">cmp</Font><Font
+       html:Color="#000000"> demonstrated that the signed 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> is less than or equal to the signed 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000">, branch to the address computed by adding the signed 10-bit immediate value shifted to the left by 1 bit to the program counter. The branch is relative to the address of this instruction.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">bleu</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="43">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Branch if less than or equal, unsigned. If the results of the last </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">cmp</Font><Font
+       html:Color="#000000"> demonstrated that the unsigned 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> is less than or equal to the unsigned 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000">, branch to the address computed by adding the signed 10-bit immediate value to the program counter. The branch is relative to the address of this instruction.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">blt</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="47">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Branch if less than. If the results of the last </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">cmp</Font><Font
+       html:Color="#000000"> demonstrated that the signed 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> is less than the signed 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000">, branch to the address computed by adding the signed 10-bit immediate value shifted to the left by 1 bit to the program counter. The branch is relative to the address of this instruction.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">bltu</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="51">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Branch if less than, unsigned. If the results of the last </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">cmp</Font><Font
+       html:Color="#000000"> demonstrated that the unsigned 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> is less than the unsigned 32-bit value in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000">, branch to the address computed by adding the signed 10-bit immediate value shifted to the left by 1 bit to the program counter. The branch is relative to the address of this instruction.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">bne</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="55">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Branch if not equal. If the results of the last </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">cmp</Font><Font
+       html:Color="#000000"> demonstrated that </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> is not equal to </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000">, branch to the address computed by adding the signed 10-bit immediate value shifted to the left by 1 bit to the program counter. The branch is relative to the address of this instruction.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">brk</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="59">
+    <Cell><Data ss:Type="String">Break. The software breakpoint instruction.</Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">cmp</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="63">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Compare. Compares the contents of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> to </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> and store the results in the processor's internal condition code register. This is the only instruction that updates the internal condition code register used by the branch instructions.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">dec</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="67">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Decrement. Decrement register </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> by the 8-bit value encoded in the 16-bit opcode.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">div</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="71">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Divide, long. Divides the signed contents of registers </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> and </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> and stores the result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">. Two special cases are handled here: division by zero asserts an Divide by Zero [[Exceptions|Exception]], and INT_MIN divided by -1 results in INT_MIN.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">gsr</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="75">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Get special register. Move the contents of the special register S into </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">inc</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="79">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Increment. Increment register </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> by the 8-bit value encoded in the 16-bit opcode.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">jmp</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="83">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Jump. Jumps to the 32-bit address stored in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">. This is not a subroutine call, and therefore the stack is not updated.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">jmpa</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="87">
+    <Cell><Data ss:Type="String">Jump to address. Jumps to the 32-bit address following the 16-bit opcode. This is not a subroutine call, and therefore the stack is not updated.</Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">jsr</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="91">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Jump to subroutine. Jumps to a subroutine at the address stored in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">jsra</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="95">
+    <Cell><Data ss:Type="String">Jump to subroutine at absolute address. Jumps to a subroutine identified by the 32-bit address following the 16-bit opcode.</Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ld.b</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="99">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Load byte. Loads the 8-bit contents stored at the address pointed to by </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> into </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rA</Font><Font html:Color="#000000">. The loaded value is zero-extended to 32-bits.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ld.l</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="103">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Load long. Loads the 32-bit contents stored at the address pointed to by </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> into </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rA</Font><Font html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ld.s</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="107">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Load short. Loads the 16-bit contents stored at the address pointed to by </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> into </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rA</Font><Font html:Color="#000000">. The loaded value is zero-extended to 32-bits.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">lda.b</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="111">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Load absolute, byte. Loads the 8-bit value pointed at by the 32-bit address following the 16-bit opcode into register </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">. The loaded value is zero-extended to 32-bits.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">lda.l</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="115">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Load absolute, long. Loads the 32-bit value pointed at by the 32-bit address following the 16-bit opcode into register </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">lda.s</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="119">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Load absolute, short. Loads the 16-bit value pointed at by the 32-bit address following the 16-bit opcode into register </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">. The loaded value is zero-extended to 32-bits.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ldi.l</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="123">
+    <Cell><Data ss:Type="String">Load immediate, long. Loads the 32-bit immediate following the 16-bit opcode into register %rA.</Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ldi.b</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="127">
+    <Cell><Data ss:Type="String">Load immediate, byte. Loads the 32-bit immediate following the 16-bit opcode into register %rA. This is a poor encoding, as the 32-bit value really only contains 8-bits of interest.</Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ldi.s</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="131">
+    <Cell><Data ss:Type="String">Load immediate, short. Loads the 32-bit immediate following the 16-bit opcode into register %rA. This is a poor encoding, as the 32-bit value really only contains 16-bits of interest.</Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ldo.b</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="135">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Load offset, byte. Loads into </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> the 8-bit value from memory pointed at by the address produced by adding the 16-bit value following the 16-bit opcode to </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000">. The loaded value is zero-extended to 32-bits.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ldo.l</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="139">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Load offset, long. Loads into </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> the 32-bit value from memory pointed at by the address produced by adding the 16-bit value following the 16-bit opcode to </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ldo.s</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="143">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Load offset, short. Loads into </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> the 16-bit value from memory pointed at by the address produced by adding the 16-bit value following the 16-bit opcode to </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000">. The loaded value is zero-extended to 32-bits.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">lshr</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="147">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Logical shift right. Performs a logical shift right of register </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> by </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> bits and stores the result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">mod</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="151">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Modulus, long. Compute the modulus of the signed contents of registers </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> and </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> and stores the result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">mov</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="155">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Move register to register. Move the contents of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> into </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rA</Font><Font html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">mul</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="159">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Multiply. Multiplies the contents of registers </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> and </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> and stores the lower 32-bits of a 64-bit result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">mul.x</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="163">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Signed multiply, upper word. Multiplies the contents of registers </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> and </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> and stores the upper 32-bits of a 64-bit result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">neg</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="167">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Negative. Changes the sign of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> and stores the result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">nop</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="171">
+    <Cell><Data ss:Type="String">Do nothing.</Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">not</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="175">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Logical not. Performs a logical not operation on the contents of register </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> and stores the result in register </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">or</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="179">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Logical or. Performs a logical or operation on the contents of registers </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> and </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> and stores the result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">pop</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="183">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Pop the 32-bit contents of the top of the stack pointed to by </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> into </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> and update the stack pointer in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">. Stacks grown down.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">push</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="187">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Push the contents of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> onto a stack pointed to by </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> and update the stack pointer in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">. Stacks grown down.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ret</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="191">
+    <Cell><Data ss:Type="String">Return from subroutine.</Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">sex.b</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="195">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Sign-extend byte. Sign-extend the lower 8-bits of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> into a </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rA</Font><Font html:Color="#000000"> as a 32-bit value.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">sex.s</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="199">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Sign-extend short. Sign-extend the lower 16-bits of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> into a </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rA</Font><Font html:Color="#000000"> as a 32-bit value.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">ssr</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="203">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Set special register. Move the contents of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> into special register S.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">st.b</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="207">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Store byte. Stores the 8-bit contents of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> into memory at the address pointed to by </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">st.l</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="211">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Store long. Stores the 32-bit contents of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> into memory at the address pointed to by </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">st.s</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="215">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Store short. Stores the 16-bit contents of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> into memory at the address pointed to by </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">sta.b</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="219">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Store absolute, byte. Stores the lower 8-bit contents of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> into memory at the 32-bit address following the 16-bit opcode.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">sta.l</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="223">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Store absolute, long. Stores the full 32-bit contents of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> into memory at the 32-bit address following the 16-bit opcode.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">sta.s</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="227">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Store absolute, short. Stores the lower 16-bit contents of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> into memory at the 32-bit address following the 16-bit opcode.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">sto.b</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="231">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Store offset, byte. Stores the 8-bit contents of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> into memory at the address roduced by adding the 16-bit value following the 16-bit opcode to </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">sto.l</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="235">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Store offset, long. Stores the 32-bit contents of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> into memory at the address roduced by adding the 16-bit value following the 16-bit opcode to </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">sto.s</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="239">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Store offset, short. Stores the 16-bit contents of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> into memory at the address roduced by adding the 16-bit value following the 16-bit opcode to </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">sub</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="243">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Subtract, long. Subtracts the contents of registers </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> and </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> and stores the result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">swi</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="247">
+    <Cell><Data ss:Type="String">Software interrupt. Trigger a software interrupt, where the interrupt type is encoded in the 32-bits following the 16-bit opcode.</Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">udiv</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="251">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Divide unsigned, long. Divides the unsigned contents of registers </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> and </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> and stores the result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">umod</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="255">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Modulus unsigned, long. Compute the modulus of the unsigned contents of registers </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> and </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> and stores the result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">umul.x</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="259">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Unsigned multiply, upper word. Multiplies the contents of registers </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> and </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> and stores the upper 32-bits of an unsigned 64-bit result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">xor</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="263">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Logical exclusive or. Performs a logical exclusive or operation on the contents of registers </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000"> and </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rB</Font><Font html:Color="#000000"> and stores the result in </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rA</Font><Font
+       html:Color="#000000">.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">zex.b</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="267">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Zero-extend byte. Zero-extend the lower 8-bits of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> into a </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rA</Font><Font html:Color="#000000"> as a 32-bit value.</Font></ss:Data></Cell>
+   </Row>
+   <Row ss:Height="23.25">
+    <Cell ss:StyleID="s67"/>
+   </Row>
+   <Row>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">zex.s</Data></Cell>
+    <Cell ss:StyleID="s65"/>
+   </Row>
+   <Row ss:Index="271">
+    <Cell><ss:Data ss:Type="String" xmlns="http://www.w3.org/TR/REC-html40"><Font
+       html:Color="#000000">Zero-extend short. Zero-extend the lower 16-bits of </Font><Font
+       html:Face="Arial Unicode MS" html:Size="10" html:Color="#000000">$rB</Font><Font
+       html:Color="#000000"> into a </Font><Font html:Face="Arial Unicode MS"
+       html:Size="10" html:Color="#000000">$rA</Font><Font html:Color="#000000"> as a 32-bit value.</Font></ss:Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Print>
+    <ValidPrinterInfo/>
+    <PaperSizeIndex>9</PaperSizeIndex>
+    <HorizontalResolution>600</HorizontalResolution>
+    <VerticalResolution>600</VerticalResolution>
+   </Print>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>51</ActiveRow>
+     <ActiveCol>10</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+ <Worksheet ss:Name="Arkusz2">
+  <Table ss:ExpandedColumnCount="3" ss:ExpandedRowCount="69" x:FullColumns="1"
+   x:FullRows="1" ss:DefaultRowHeight="15">
+   <Column ss:Width="54.75"/>
+   <Column ss:StyleID="s68" ss:Width="308.25"/>
+   <Column ss:Width="69.75"/>
+   <Row>
+    <Cell><Data ss:Type="String">Mnemonic</Data></Cell>
+    <Cell><Data ss:Type="String">Encoding</Data></Cell>
+    <Cell><Data ss:Type="String">implemented</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ldi.l</Data></Cell>
+    <Cell><Data ss:Type="String">00000001AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">mov</Data></Cell>
+    <Cell><Data ss:Type="String">00000010AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">jsra</Data></Cell>
+    <Cell><Data ss:Type="String">00000011xxxxxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ret</Data></Cell>
+    <Cell><Data ss:Type="String">00000100xxxxxxxx</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">add</Data></Cell>
+    <Cell><Data ss:Type="String">00000101AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">push</Data></Cell>
+    <Cell><Data ss:Type="String">00000110AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">pop</Data></Cell>
+    <Cell><Data ss:Type="String">00000111AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">lda.l</Data></Cell>
+    <Cell><Data ss:Type="String">00001000AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sta.l</Data></Cell>
+    <Cell><Data ss:Type="String">00001001AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ld.l</Data></Cell>
+    <Cell><Data ss:Type="String">00001010AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">st.l</Data></Cell>
+    <Cell><Data ss:Type="String">00001011AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ldo.l</Data></Cell>
+    <Cell><Data ss:Type="String">00001100AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sto.l</Data></Cell>
+    <Cell><Data ss:Type="String">00001101AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">cmp</Data></Cell>
+    <Cell><Data ss:Type="String">00001110AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">nop</Data></Cell>
+    <Cell><Data ss:Type="String">00001111xxxxxxxx</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sex.b</Data></Cell>
+    <Cell><Data ss:Type="String">00010000AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sex.s</Data></Cell>
+    <Cell><Data ss:Type="String">00010001AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">zex.b</Data></Cell>
+    <Cell><Data ss:Type="String">00010010AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">zex.s</Data></Cell>
+    <Cell><Data ss:Type="String">00010011AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">umul.x</Data></Cell>
+    <Cell><Data ss:Type="String">00010100AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">mul.x</Data></Cell>
+    <Cell><Data ss:Type="String">00010101AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">jsr</Data></Cell>
+    <Cell><Data ss:Type="String">00011001AAAAxxxx</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">jmpa</Data></Cell>
+    <Cell><Data ss:Type="String">00011010xxxxxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ldi.b</Data></Cell>
+    <Cell><Data ss:Type="String">00011011AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ld.b</Data></Cell>
+    <Cell><Data ss:Type="String">00011100AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">lda.b</Data></Cell>
+    <Cell><Data ss:Type="String">00011101AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">st.b</Data></Cell>
+    <Cell><Data ss:Type="String">00011110AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sta.b</Data></Cell>
+    <Cell><Data ss:Type="String">00011111AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ldi.s</Data></Cell>
+    <Cell><Data ss:Type="String">00100000AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ld.s</Data></Cell>
+    <Cell><Data ss:Type="String">00100001AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">lda.s</Data></Cell>
+    <Cell><Data ss:Type="String">00100010AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">st.s</Data></Cell>
+    <Cell><Data ss:Type="String">00100011AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sta.s</Data></Cell>
+    <Cell><Data ss:Type="String">00100100AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">jmp</Data></Cell>
+    <Cell><Data ss:Type="String">00100101AAAAxxxx</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">and</Data></Cell>
+    <Cell><Data ss:Type="String">00100110AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">lshr</Data></Cell>
+    <Cell><Data ss:Type="String">00100111AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ashl</Data></Cell>
+    <Cell><Data ss:Type="String">00101000AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sub</Data></Cell>
+    <Cell><Data ss:Type="String">00101001AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">neg</Data></Cell>
+    <Cell><Data ss:Type="String">00101010AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">or</Data></Cell>
+    <Cell><Data ss:Type="String">00101011AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">not</Data></Cell>
+    <Cell><Data ss:Type="String">00101100AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ashr</Data></Cell>
+    <Cell><Data ss:Type="String">00101101AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">xor</Data></Cell>
+    <Cell><Data ss:Type="String">00101110AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">mul</Data></Cell>
+    <Cell><Data ss:Type="String">00101111AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">swi</Data></Cell>
+    <Cell><Data ss:Type="String">00110000xxxxxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">div</Data></Cell>
+    <Cell><Data ss:Type="String">00110001AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">udiv</Data></Cell>
+    <Cell><Data ss:Type="String">00110010AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">mod</Data></Cell>
+    <Cell><Data ss:Type="String">00110011AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">umod</Data></Cell>
+    <Cell><Data ss:Type="String">00110100AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">brk</Data></Cell>
+    <Cell><Data ss:Type="String">00110101xxxxxxxx</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ldo.b</Data></Cell>
+    <Cell><Data ss:Type="String">00110110AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sto.b</Data></Cell>
+    <Cell><Data ss:Type="String">00110111AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ldo.s</Data></Cell>
+    <Cell><Data ss:Type="String">00111000AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sto.s</Data></Cell>
+    <Cell><Data ss:Type="String">00111001AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">inc</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">1000AAAAiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">dec</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">1001AAAAiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">gsr</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">1010AAAASSSSSSSS</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ssr</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">1011AAAASSSSSSSS</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">beq</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">110000vvvvvvvvvv</Data></Cell>
+    <Cell ss:Formula="=+R[-11]C[3]"><Data ss:Type="Number">0</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">bne</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">110001vvvvvvvvvv</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">blt</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">110010vvvvvvvvvv</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">bgt</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">110011vvvvvvvvvv</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">bltu</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">110100vvvvvvvvvv</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">bgtu</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">110101vvvvvvvvvv</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">bge</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">110110vvvvvvvvvv</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ble</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">110111vvvvvvvvvv</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">bgeu</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">111000vvvvvvvvvv</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">bleu</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">111001vvvvvvvvvv</Data></Cell>
+   </Row>
+  </Table>
+  <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+   <PageSetup>
+    <Header x:Margin="0.3"/>
+    <Footer x:Margin="0.3"/>
+    <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
+   </PageSetup>
+   <Selected/>
+   <TopRowVisible>40</TopRowVisible>
+   <Panes>
+    <Pane>
+     <Number>3</Number>
+     <ActiveRow>59</ActiveRow>
+     <ActiveCol>2</ActiveCol>
+    </Pane>
+   </Panes>
+   <ProtectObjects>False</ProtectObjects>
+   <ProtectScenarios>False</ProtectScenarios>
+  </WorksheetOptions>
+ </Worksheet>
+</Workbook>
