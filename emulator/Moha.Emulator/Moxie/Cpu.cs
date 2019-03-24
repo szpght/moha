@@ -355,9 +355,19 @@ namespace Moha.Emulator.Moxie
                     break;
 
                 case Opcode.StoB:
+                    address = (uint)(Registers[instruction.RegisterA] + GetShortSignedImmediate());
+                    _memory.StoreByte(address, (byte)Registers[instruction.RegisterB]);
+                    break;
+
                 case Opcode.StoL:
+                    address = (uint)(Registers[instruction.RegisterA] + GetShortSignedImmediate());
+                    _memory.StoreLong(address, Registers[instruction.RegisterB]);
+                    break;
+
                 case Opcode.StoS:
-                    throw new NotImplementedException();
+                    address = (uint)(Registers[instruction.RegisterA] + GetShortSignedImmediate());
+                    _memory.StoreShort(address, (ushort)Registers[instruction.RegisterB]);
+                    break;
 
                 case Opcode.Sub:
                     Registers[instruction.RegisterA] = Registers[instruction.RegisterA] - Registers[instruction.RegisterB];

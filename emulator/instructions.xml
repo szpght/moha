@@ -1364,14 +1364,17 @@
    <Row>
     <Cell><Data ss:Type="String">sto.b</Data></Cell>
     <Cell><Data ss:Type="String">00110111AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">sto.l</Data></Cell>
     <Cell><Data ss:Type="String">00001101AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">sto.s</Data></Cell>
     <Cell><Data ss:Type="String">00111001AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
     <Cell><Data ss:Type="String">sub</Data></Cell>
@@ -1421,11 +1424,11 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Selected/>
-   <TopRowVisible>42</TopRowVisible>
+   <TopRowVisible>48</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>58</ActiveRow>
+     <ActiveRow>61</ActiveRow>
      <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
