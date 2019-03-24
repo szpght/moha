@@ -10,6 +10,7 @@ namespace Moha.Emulator.Moxie
             if (highestBits == 0xC000)
             {
                 var opcode = encodedInstruction & 0xFC00;
+                throw new NotImplementedException("TODO handle sign");
                 var value = encodedInstruction & 0x3F; // TODO handle sign
                 return new Instruction(opcode, value);
             }
@@ -17,6 +18,7 @@ namespace Moha.Emulator.Moxie
             {
                 var opcode = encodedInstruction & 0xF000;
                 var register = (encodedInstruction >> 8) & 0xF;
+                throw new NotImplementedException("TODO handle sign");
                 var value = encodedInstruction & 0xFF; // TODO handle sign
                 return new Instruction(opcode, register, 0, value);
             }
