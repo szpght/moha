@@ -3,6 +3,7 @@ using ELFSharp.ELF.Segments;
 using Moha.Emulator.Moxie;
 using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace Moha.Emulator
 {
@@ -10,6 +11,13 @@ namespace Moha.Emulator
     {
         static void Main(string[] args)
         {
+            uint a = 200;
+            uint b;
+            unchecked
+            {
+                b = (uint)(sbyte)a;
+            }
+
             const int memorySize = 16 * 1024 * 1024;
             var mmu = new Mmu(memorySize);
             var decoder = new InstructionDecoder();

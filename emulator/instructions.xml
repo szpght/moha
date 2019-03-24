@@ -9,7 +9,7 @@
   <Author>Paweł</Author>
   <LastAuthor>Paweł</LastAuthor>
   <Created>2019-03-23T17:57:47Z</Created>
-  <LastSaved>2019-03-23T21:38:34Z</LastSaved>
+  <LastSaved>2019-03-23T22:01:23Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
@@ -1077,144 +1077,8 @@
     <Cell><Data ss:Type="String">implemented</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">ldi.l</Data></Cell>
-    <Cell><Data ss:Type="String">00000001AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">mov</Data></Cell>
-    <Cell><Data ss:Type="String">00000010AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">jsra</Data></Cell>
-    <Cell><Data ss:Type="String">00000011xxxxxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ret</Data></Cell>
-    <Cell><Data ss:Type="String">00000100xxxxxxxx</Data></Cell>
-   </Row>
-   <Row>
     <Cell><Data ss:Type="String">add</Data></Cell>
     <Cell><Data ss:Type="String">00000101AAAABBBB</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">push</Data></Cell>
-    <Cell><Data ss:Type="String">00000110AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">pop</Data></Cell>
-    <Cell><Data ss:Type="String">00000111AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">lda.l</Data></Cell>
-    <Cell><Data ss:Type="String">00001000AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">sta.l</Data></Cell>
-    <Cell><Data ss:Type="String">00001001AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ld.l</Data></Cell>
-    <Cell><Data ss:Type="String">00001010AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">st.l</Data></Cell>
-    <Cell><Data ss:Type="String">00001011AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ldo.l</Data></Cell>
-    <Cell><Data ss:Type="String">00001100AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">sto.l</Data></Cell>
-    <Cell><Data ss:Type="String">00001101AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">cmp</Data></Cell>
-    <Cell><Data ss:Type="String">00001110AAAABBBB</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">nop</Data></Cell>
-    <Cell><Data ss:Type="String">00001111xxxxxxxx</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">sex.b</Data></Cell>
-    <Cell><Data ss:Type="String">00010000AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">sex.s</Data></Cell>
-    <Cell><Data ss:Type="String">00010001AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">zex.b</Data></Cell>
-    <Cell><Data ss:Type="String">00010010AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">zex.s</Data></Cell>
-    <Cell><Data ss:Type="String">00010011AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">umul.x</Data></Cell>
-    <Cell><Data ss:Type="String">00010100AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">mul.x</Data></Cell>
-    <Cell><Data ss:Type="String">00010101AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">jsr</Data></Cell>
-    <Cell><Data ss:Type="String">00011001AAAAxxxx</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">jmpa</Data></Cell>
-    <Cell><Data ss:Type="String">00011010xxxxxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ldi.b</Data></Cell>
-    <Cell><Data ss:Type="String">00011011AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ld.b</Data></Cell>
-    <Cell><Data ss:Type="String">00011100AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">lda.b</Data></Cell>
-    <Cell><Data ss:Type="String">00011101AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">st.b</Data></Cell>
-    <Cell><Data ss:Type="String">00011110AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">sta.b</Data></Cell>
-    <Cell><Data ss:Type="String">00011111AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ldi.s</Data></Cell>
-    <Cell><Data ss:Type="String">00100000AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ld.s</Data></Cell>
-    <Cell><Data ss:Type="String">00100001AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">lda.s</Data></Cell>
-    <Cell><Data ss:Type="String">00100010AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">st.s</Data></Cell>
-    <Cell><Data ss:Type="String">00100011AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">sta.s</Data></Cell>
-    <Cell><Data ss:Type="String">00100100AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">jmp</Data></Cell>
-    <Cell><Data ss:Type="String">00100101AAAAxxxx</Data></Cell>
     <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
@@ -1223,103 +1087,13 @@
     <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">lshr</Data></Cell>
-    <Cell><Data ss:Type="String">00100111AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
     <Cell><Data ss:Type="String">ashl</Data></Cell>
     <Cell><Data ss:Type="String">00101000AAAABBBB</Data></Cell>
     <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">sub</Data></Cell>
-    <Cell><Data ss:Type="String">00101001AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">neg</Data></Cell>
-    <Cell><Data ss:Type="String">00101010AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">or</Data></Cell>
-    <Cell><Data ss:Type="String">00101011AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">not</Data></Cell>
-    <Cell><Data ss:Type="String">00101100AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
     <Cell><Data ss:Type="String">ashr</Data></Cell>
     <Cell><Data ss:Type="String">00101101AAAABBBB</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">xor</Data></Cell>
-    <Cell><Data ss:Type="String">00101110AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">mul</Data></Cell>
-    <Cell><Data ss:Type="String">00101111AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">swi</Data></Cell>
-    <Cell><Data ss:Type="String">00110000xxxxxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">div</Data></Cell>
-    <Cell><Data ss:Type="String">00110001AAAABBBB</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">udiv</Data></Cell>
-    <Cell><Data ss:Type="String">00110010AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">mod</Data></Cell>
-    <Cell><Data ss:Type="String">00110011AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">umod</Data></Cell>
-    <Cell><Data ss:Type="String">00110100AAAABBBB</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">brk</Data></Cell>
-    <Cell><Data ss:Type="String">00110101xxxxxxxx</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ldo.b</Data></Cell>
-    <Cell><Data ss:Type="String">00110110AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">sto.b</Data></Cell>
-    <Cell><Data ss:Type="String">00110111AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ldo.s</Data></Cell>
-    <Cell><Data ss:Type="String">00111000AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">sto.s</Data></Cell>
-    <Cell><Data ss:Type="String">00111001AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">inc</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1000AAAAiiiiiiii</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">dec</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1001AAAAiiiiiiii</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">gsr</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1010AAAASSSSSSSS</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ssr</Data></Cell>
-    <Cell ss:StyleID="s71"><Data ss:Type="String">1011AAAASSSSSSSS</Data></Cell>
     <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
@@ -1328,38 +1102,8 @@
     <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
-    <Cell><Data ss:Type="String">bne</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">110001vvvvvvvvvv</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">blt</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">110010vvvvvvvvvv</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">bgt</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">110011vvvvvvvvvv</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">bltu</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">110100vvvvvvvvvv</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">bgtu</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">110101vvvvvvvvvv</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
     <Cell><Data ss:Type="String">bge</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">110110vvvvvvvvvv</Data></Cell>
-    <Cell><Data ss:Type="String">+</Data></Cell>
-   </Row>
-   <Row>
-    <Cell><Data ss:Type="String">ble</Data></Cell>
-    <Cell ss:StyleID="s78"><Data ss:Type="String">110111vvvvvvvvvv</Data></Cell>
     <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
@@ -1368,8 +1112,299 @@
     <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
    <Row>
+    <Cell><Data ss:Type="String">bgt</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">110011vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">bgtu</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">110101vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ble</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">110111vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
     <Cell><Data ss:Type="String">bleu</Data></Cell>
     <Cell ss:StyleID="s78"><Data ss:Type="String">111001vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">blt</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">110010vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">bltu</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">110100vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">bne</Data></Cell>
+    <Cell ss:StyleID="s78"><Data ss:Type="String">110001vvvvvvvvvv</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">brk</Data></Cell>
+    <Cell><Data ss:Type="String">00110101xxxxxxxx</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">cmp</Data></Cell>
+    <Cell><Data ss:Type="String">00001110AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">dec</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">1001AAAAiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">div</Data></Cell>
+    <Cell><Data ss:Type="String">00110001AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">gsr</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">1010AAAASSSSSSSS</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">inc</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">1000AAAAiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">jmp</Data></Cell>
+    <Cell><Data ss:Type="String">00100101AAAAxxxx</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">jmpa</Data></Cell>
+    <Cell><Data ss:Type="String">00011010xxxxxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">jsr</Data></Cell>
+    <Cell><Data ss:Type="String">00011001AAAAxxxx</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">jsra</Data></Cell>
+    <Cell><Data ss:Type="String">00000011xxxxxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ld.b</Data></Cell>
+    <Cell><Data ss:Type="String">00011100AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ld.l</Data></Cell>
+    <Cell><Data ss:Type="String">00001010AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ld.s</Data></Cell>
+    <Cell><Data ss:Type="String">00100001AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">lda.b</Data></Cell>
+    <Cell><Data ss:Type="String">00011101AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">lda.l</Data></Cell>
+    <Cell><Data ss:Type="String">00001000AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">lda.s</Data></Cell>
+    <Cell><Data ss:Type="String">00100010AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ldi.b</Data></Cell>
+    <Cell><Data ss:Type="String">00011011AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ldi.l</Data></Cell>
+    <Cell><Data ss:Type="String">00000001AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ldi.s</Data></Cell>
+    <Cell><Data ss:Type="String">00100000AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ldo.b</Data></Cell>
+    <Cell><Data ss:Type="String">00110110AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ldo.l</Data></Cell>
+    <Cell><Data ss:Type="String">00001100AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ldo.s</Data></Cell>
+    <Cell><Data ss:Type="String">00111000AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">lshr</Data></Cell>
+    <Cell><Data ss:Type="String">00100111AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">mod</Data></Cell>
+    <Cell><Data ss:Type="String">00110011AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">mov</Data></Cell>
+    <Cell><Data ss:Type="String">00000010AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">mul</Data></Cell>
+    <Cell><Data ss:Type="String">00101111AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">mul.x</Data></Cell>
+    <Cell><Data ss:Type="String">00010101AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">neg</Data></Cell>
+    <Cell><Data ss:Type="String">00101010AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">nop</Data></Cell>
+    <Cell><Data ss:Type="String">00001111xxxxxxxx</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">not</Data></Cell>
+    <Cell><Data ss:Type="String">00101100AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">or</Data></Cell>
+    <Cell><Data ss:Type="String">00101011AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">pop</Data></Cell>
+    <Cell><Data ss:Type="String">00000111AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">push</Data></Cell>
+    <Cell><Data ss:Type="String">00000110AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ret</Data></Cell>
+    <Cell><Data ss:Type="String">00000100xxxxxxxx</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sex.b</Data></Cell>
+    <Cell><Data ss:Type="String">00010000AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sex.s</Data></Cell>
+    <Cell><Data ss:Type="String">00010001AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">ssr</Data></Cell>
+    <Cell ss:StyleID="s71"><Data ss:Type="String">1011AAAASSSSSSSS</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">st.b</Data></Cell>
+    <Cell><Data ss:Type="String">00011110AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">st.l</Data></Cell>
+    <Cell><Data ss:Type="String">00001011AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">st.s</Data></Cell>
+    <Cell><Data ss:Type="String">00100011AAAABBBB</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sta.b</Data></Cell>
+    <Cell><Data ss:Type="String">00011111AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sta.l</Data></Cell>
+    <Cell><Data ss:Type="String">00001001AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sta.s</Data></Cell>
+    <Cell><Data ss:Type="String">00100100AAAAxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sto.b</Data></Cell>
+    <Cell><Data ss:Type="String">00110111AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sto.l</Data></Cell>
+    <Cell><Data ss:Type="String">00001101AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sto.s</Data></Cell>
+    <Cell><Data ss:Type="String">00111001AAAABBBB iiiiiiiiiiiiiiii</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">sub</Data></Cell>
+    <Cell><Data ss:Type="String">00101001AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">swi</Data></Cell>
+    <Cell><Data ss:Type="String">00110000xxxxxxxx iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">udiv</Data></Cell>
+    <Cell><Data ss:Type="String">00110010AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">umod</Data></Cell>
+    <Cell><Data ss:Type="String">00110100AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">umul.x</Data></Cell>
+    <Cell><Data ss:Type="String">00010100AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">xor</Data></Cell>
+    <Cell><Data ss:Type="String">00101110AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">zex.b</Data></Cell>
+    <Cell><Data ss:Type="String">00010010AAAABBBB</Data></Cell>
+    <Cell><Data ss:Type="String">+</Data></Cell>
+   </Row>
+   <Row>
+    <Cell><Data ss:Type="String">zex.s</Data></Cell>
+    <Cell><Data ss:Type="String">00010011AAAABBBB</Data></Cell>
     <Cell><Data ss:Type="String">+</Data></Cell>
    </Row>
   </Table>
@@ -1380,10 +1415,12 @@
     <PageMargins x:Bottom="0.75" x:Left="0.7" x:Right="0.7" x:Top="0.75"/>
    </PageSetup>
    <Selected/>
+   <TopRowVisible>33</TopRowVisible>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>60</ActiveRow>
+     <ActiveCol>2</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

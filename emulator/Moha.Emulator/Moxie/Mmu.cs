@@ -27,7 +27,31 @@ namespace Moha.Emulator.Moxie
             casted.CopyTo(destination);
         }
 
-        public uint GetLong(int index)
+        public byte GetByte(uint address)
+        {
+            var index = (int)(address / 2);
+            var ushortMemory = _memory.AsSpan(index);
+            var byteMemory = MemoryMarshal.Cast<ushort, byte>(ushortMemory);
+            var memoryIndex = address % 2;
+            return byteMemory[(int)memoryIndex];
+        }
+
+        public ushort GetShort(uint address)
+        {
+            throw new NotImplementedException();
+        }
+
+        public uint GetLong(uint address)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// This method works on memory aligned do short boundary
+        /// </summary>
+        /// <param name="index">Index in _memory array where requested long starts</param>
+        /// <returns></returns>
+        public uint GetLongAtIndex(int index)
         {
             var memoryAreaWithTheLong = _memory.AsSpan(index, 4);
             var castedMemory = MemoryMarshal.Cast<ushort, uint>(memoryAreaWithTheLong);
