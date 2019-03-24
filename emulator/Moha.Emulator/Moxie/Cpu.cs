@@ -331,11 +331,29 @@ namespace Moha.Emulator.Moxie
                     break;
 
                 case Opcode.StB:
+                    _memory.StoreByte(Registers[instruction.RegisterA], (byte)Registers[instruction.RegisterB]);
+                    break;
+
                 case Opcode.StL:
+                    _memory.StoreLong(Registers[instruction.RegisterA], Registers[instruction.RegisterB]);
+                    break;
+
                 case Opcode.StS:
+                    _memory.StoreShort(Registers[instruction.RegisterA], (ushort)Registers[instruction.RegisterB]);
+                    break;
+
                 case Opcode.StaB:
+                    _memory.StoreByte(GetLongImmediate(), (byte)Registers[instruction.RegisterA]);
+                    break;
+
                 case Opcode.StaL:
+                    _memory.StoreLong(GetLongImmediate(), Registers[instruction.RegisterA]);
+                    break;
+
                 case Opcode.StaS:
+                    _memory.StoreShort(GetLongImmediate(), (ushort)Registers[instruction.RegisterA]);
+                    break;
+
                 case Opcode.StoB:
                 case Opcode.StoL:
                 case Opcode.StoS:

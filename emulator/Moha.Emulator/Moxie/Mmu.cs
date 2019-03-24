@@ -46,6 +46,21 @@ namespace Moha.Emulator.Moxie
             throw new NotImplementedException();
         }
 
+        public void StoreByte(uint address, byte value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void StoreShort(uint address, ushort value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void StoreLong(uint address, uint value)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// This method works on memory aligned do short boundary
         /// </summary>
