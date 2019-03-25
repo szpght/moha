@@ -4,6 +4,9 @@ using Moha.Emulator.Moxie;
 using System;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Moha.Emulator.Tests")]
 
 namespace Moha.Emulator
 {

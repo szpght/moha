@@ -10,8 +10,11 @@ namespace Moha.Emulator.Moxie
             if (highestBits == 0xC000)
             {
                 var opcode = encodedInstruction & 0xFC00;
-                throw new NotImplementedException("TODO handle sign");
-                var value = encodedInstruction & 0x3F; // TODO handle sign
+                var value = encodedInstruction & 0x3FF;
+                if (value > 511)
+                {
+                    value -= 1024;
+                }
                 return new Instruction(opcode, value);
             }
             else if (highestBits == 0x8000)
