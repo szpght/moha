@@ -75,7 +75,7 @@ namespace Moha.Emulator.Moxie
         }
 
         /// <summary>
-        /// This method works on memory aligned do short boundary
+        /// This method works on memory aligned to short boundary
         /// </summary>
         /// <param name="index">Index in _memory array where requested long starts</param>
         /// <returns></returns>

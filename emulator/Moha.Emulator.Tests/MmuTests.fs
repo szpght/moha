@@ -7,6 +7,7 @@ open Swensen.Unquote
 
 let memorySize = 512
 let destinationOffset = memorySize / 2 |> uint32
+let destinationIndex = (int destinationOffset) / 2
 let sampleData =
     [0xFF; 0xFF; 0xFF; 0xDE; 0xAD; 0xBE; 0xEF; 0xFF]
     |> Seq.map (fun x -> byte x)
@@ -84,4 +85,36 @@ let ``GetLong: throws when range exceeded by 1 byte`` () =
             |> withAbsoluteAddress (memorySize - 3)
             |> ignore
         getOutOfRangeLong |> should throw typeof<IndexOutOfRangeException>
+    )
+
+let exampleStoreAddress = uint32 259
+
+[<Fact>]
+let ``StoreByte: stored value can be retrieved`` () =
+    withMmu (fun mmu ->
+        mmu.StoreByte(exampleStoreAddress, 0xCAuy)
+        mmu.StoreByte(exampleStoreAddress + (uint32 1), 0xFEuy)
+
+        mmu.GetByte(exampleStoreAddress) |> should equal 0xCAuy
+        mmu.GetByte(exampleStoreAddress + (uint32 1)) |> should equal 0xFEuy
+    )
+
+[<Fact>]
+let ``StoreShort: stored value can be retrieved`` () =
+    withMmu (fun mmu ->
+        mmu.StoreShort(exampleStoreAddress, 0xBABEus)
+        mmu.GetShort(exampleStoreAddress) |> should equal 0xBABEus
+    )
+
+[<Fact>]
+let ``StoreLong: stored value can be retrieved`` () =
+    withMmu (fun mmu ->
+        mmu.StoreLong(exampleStoreAddress, 0xDEADBAADul)
+        mmu.GetLong(exampleStoreAddress) |> should equal 0xDEADBAADul
+    )
+
+[<Fact>]
+let ``GetLongAtIndex: gets short value from 16-bit based index`` () =
+    withMmu (fun mmu ->
+        mmu.GetLongAtIndex(destinationIndex + 2) |> should equal 0xFFEFBEADul
     )
