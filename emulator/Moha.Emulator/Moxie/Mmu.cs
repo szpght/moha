@@ -49,12 +49,14 @@ namespace Moha.Emulator.Moxie
             var span = _memory.AsSpan((int)index);
             var byteSpan = MemoryMarshal.Cast<ushort, byte>(span);
             return (ushort)(byteSpan[1] + (byteSpan[2] << 8));
-
         }
 
         public uint GetLong(uint address)
         {
-            throw new NotImplementedException();
+            var index = address / 2;
+            var byteMemory = MemoryMarshal.Cast<ushort, byte>(_memory.AsSpan((int)index));
+            byteMemory = byteMemory.Slice((int)(address % 2));
+            return MemoryMarshal.Cast<byte, uint>(byteMemory)[0];
         }
 
         public void StoreByte(uint address, byte value)

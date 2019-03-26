@@ -50,3 +50,24 @@ let ``GetShort: throws when range exceeded by 1 byte`` () =
         let getOutOfRangeWord () = mmu.GetShort (uint32 (memorySize - 1)) |> ignore
         getOutOfRangeWord |> should throw typeof<IndexOutOfRangeException>
     )
+
+[<Fact>]
+let ``GetLong: works for unaligned access`` () =
+    withMmu (fun mmu ->
+        let getLong (offset: int) = (mmu.GetLong (getAddress offset))
+        getLong 3 |> should equal 0xEFBEADDEu
+    )
+
+[<Fact>]
+let ``GetLong: works for aligned access`` () =
+    withMmu (fun mmu ->
+        let getLong (offset: int) = (mmu.GetLong (getAddress offset))
+        getLong 4 |> should equal 0xFFEFBEADu
+    )
+    
+[<Fact>]
+let ``GetLong: throws when range exceeded by 1 byte`` () =
+    withMmu (fun mmu ->
+        let getOutOfRangeLong () = mmu.GetLong (uint32 (memorySize - 1)) |> ignore
+        getOutOfRangeLong |> should throw typeof<IndexOutOfRangeException>
+    )
