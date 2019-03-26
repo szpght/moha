@@ -6,20 +6,23 @@ open System
 open Swensen.Unquote
 
 let memorySize = 512
-let createMmu () = new Mmu(memorySize)
-let withMmu test = createMmu() |> test
 let destinationOffset = memorySize / 2 |> uint32
 let sampleData =
     [0xFF; 0xFF; 0xFF; 0xDE; 0xAD; 0xBE; 0xEF; 0xFF]
     |> Seq.map (fun x -> byte x)
     |> Seq.toArray
     |> ReadOnlyMemory<byte>
-    
+let createMmu () = 
+    let mmu = new Mmu(memorySize)
+    mmu.CopyToPhysical(destinationOffset, sampleData.Span)    
+    mmu
+let withMmu test = createMmu() |> test
+let getAddress (offset: int) = uint32 (destinationOffset + uint32 offset)
+
 [<Fact>]
 let ``GetByte: works`` () =
     withMmu (fun mmu ->
-        mmu.CopyToPhysical(destinationOffset, sampleData.Span)
-        let getByte (offset: int) = int (mmu.GetByte (uint32 (destinationOffset + uint32 offset)))
+        let getByte (offset: int) = int (mmu.GetByte (getAddress offset))
         
         test <@ getByte 2 = 0xFF @>
         test <@ getByte 3 = 0xDE @>
@@ -29,3 +32,23 @@ let ``GetByte: works`` () =
         test <@ getByte 7 = 0xFF @>
     )
 
+[<Fact>]
+let ``GetShort: works for unaligned access`` () =
+    withMmu (fun mmu ->
+        let getShort (offset: int) = int (mmu.GetShort (getAddress offset))
+        test <@ getShort 3 = 0xADDE @>
+    )
+
+[<Fact>]
+let ``GetShort: works for aligned access`` () =
+    withMmu (fun mmu ->
+        let getShort (offset: int) = int (mmu.GetShort (getAddress offset))
+        test <@ getShort 4 = 0xBEAD @>
+    )
+
+[<Fact>]
+let ``GetShort: throws when range exceeded by 1 byte`` () =
+    withMmu (fun mmu ->
+        let getOutOfRangeWord () = mmu.GetShort (uint32 (memorySize - 1)) |> ignore
+        getOutOfRangeWord |> should throw typeof<IndexOutOfRangeException>
+    )

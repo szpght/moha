@@ -40,7 +40,16 @@ namespace Moha.Emulator.Moxie
 
         public ushort GetShort(uint address)
         {
-            throw new NotImplementedException();
+            var index = address / 2;
+            if (address % 2 == 0)
+            {
+                return _memory[index];
+            }
+
+            var span = _memory.AsSpan((int)index);
+            var byteSpan = MemoryMarshal.Cast<ushort, byte>(span);
+            return (ushort)(byteSpan[1] + (byteSpan[2] << 8));
+
         }
 
         public uint GetLong(uint address)
