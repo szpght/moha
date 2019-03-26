@@ -24,12 +24,10 @@ let ``GetByte: works`` () =
     withMmu (fun mmu ->
         let getByte (offset: int) = int (mmu.GetByte (getAddress offset))
         
-        test <@ getByte 2 = 0xFF @>
         test <@ getByte 3 = 0xDE @>
         test <@ getByte 4 = 0xAD @>
         test <@ getByte 5 = 0xBE @>
         test <@ getByte 6 = 0xEF @>
-        test <@ getByte 7 = 0xFF @>
     )
 
 [<Fact>]
