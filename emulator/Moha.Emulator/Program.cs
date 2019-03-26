@@ -33,7 +33,7 @@ namespace Moha.Emulator
             {
                 var content = segment.GetMemoryContents();
                 var address = segment.PhysicalAddress;
-                mmu.CopyToPhysical((int)address, content);
+                mmu.CopyToPhysical(address, content);
             }
 
             cpu.Execute((int)startAddress);

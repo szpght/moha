@@ -19,12 +19,14 @@ namespace Moha.Emulator.Moxie
 
         public ushort this[int index] => _memory[index];
 
-        public void CopyToPhysical(int destinationOffset, Span<byte> source)
+        public void CopyToPhysical(uint alignedAddress, ReadOnlySpan<byte> source)
         {
-            CheckAlignment(destinationOffset, nameof(destinationOffset));
-            var casted = MemoryMarshal.Cast<byte, ushort>(source);
-            var destination = _memory.AsSpan(destinationOffset);
-            casted.CopyTo(destination);
+            CheckAlignment(alignedAddress, nameof(alignedAddress));
+            CheckAlignment(source.Length, "source length");
+            var index = alignedAddress / 2;
+            var castedSource = MemoryMarshal.Cast<byte, ushort>(source);
+            var destination = _memory.AsSpan((int)index);
+            castedSource.CopyTo(destination);
         }
 
         public byte GetByte(uint address)
