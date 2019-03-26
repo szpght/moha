@@ -18,7 +18,6 @@ let createMmu () =
     mmu.CopyToPhysical(destinationOffset, sampleData.Span)    
     mmu
 let withMmu test = createMmu() |> test
-let sampleDataAddress (offset: int) = uint32 (destinationOffset + uint32 offset)
 let withOffsetRelativeToSampleData (offset: int) getter = getter <| uint32 (destinationOffset + (uint32 offset))
 let withAbsoluteAddress (offset: int) getter = getter <| uint32 offset
 
