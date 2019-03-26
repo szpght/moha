@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Moha.Emulator.Moxie
+﻿namespace Moha.Emulator.Moxie
 {
     class InstructionDecoder
     {
@@ -21,8 +19,7 @@ namespace Moha.Emulator.Moxie
             {
                 var opcode = encodedInstruction & 0xF000;
                 var register = (encodedInstruction >> 8) & 0xF;
-                throw new NotImplementedException("TODO handle sign");
-                var value = encodedInstruction & 0xFF; // TODO handle sign
+                var value = encodedInstruction & 0xFF;
                 return new Instruction(opcode, register, 0, value);
             }
             else
