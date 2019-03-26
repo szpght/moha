@@ -17,57 +17,71 @@ let createMmu () =
     mmu.CopyToPhysical(destinationOffset, sampleData.Span)    
     mmu
 let withMmu test = createMmu() |> test
-let getAddress (offset: int) = uint32 (destinationOffset + uint32 offset)
+let sampleDataAddress (offset: int) = uint32 (destinationOffset + uint32 offset)
+let withOffsetRelativeToSampleData (offset: int) getter = getter <| uint32 (destinationOffset + (uint32 offset))
+let withAbsoluteAddress (offset: int) getter = getter <| uint32 offset
 
 [<Fact>]
 let ``GetByte: works`` () =
     withMmu (fun mmu ->
-        let getByte (offset: int) = int (mmu.GetByte (getAddress offset))
-        
-        test <@ getByte 3 = 0xDE @>
-        test <@ getByte 4 = 0xAD @>
-        test <@ getByte 5 = 0xBE @>
-        test <@ getByte 6 = 0xEF @>
+        let getByte offset =
+            mmu.GetByte
+            |> withOffsetRelativeToSampleData offset
+
+        test <@ getByte 3 = 0xDEuy @>
+        test <@ getByte 4 = 0xADuy @>
+        test <@ getByte 5 = 0xBEuy @>
+        test <@ getByte 6 = 0xEFuy @>
     )
 
 [<Fact>]
 let ``GetShort: works for unaligned access`` () =
     withMmu (fun mmu ->
-        let getShort (offset: int) = int (mmu.GetShort (getAddress offset))
-        test <@ getShort 3 = 0xADDE @>
+        mmu.GetShort
+        |> withOffsetRelativeToSampleData 3
+        |> should equal 0xADDEus
     )
 
 [<Fact>]
 let ``GetShort: works for aligned access`` () =
     withMmu (fun mmu ->
-        let getShort (offset: int) = int (mmu.GetShort (getAddress offset))
-        test <@ getShort 4 = 0xBEAD @>
+        mmu.GetShort
+        |> withOffsetRelativeToSampleData 4
+        |> should equal 0xBEADus
     )
 
 [<Fact>]
 let ``GetShort: throws when range exceeded by 1 byte`` () =
     withMmu (fun mmu ->
-        let getOutOfRangeWord () = mmu.GetShort (uint32 (memorySize - 1)) |> ignore
+        let getOutOfRangeWord () =
+            mmu.GetShort
+            |> withAbsoluteAddress (memorySize - 1)
+            |> ignore
         getOutOfRangeWord |> should throw typeof<IndexOutOfRangeException>
     )
 
 [<Fact>]
 let ``GetLong: works for unaligned access`` () =
     withMmu (fun mmu ->
-        let getLong (offset: int) = (mmu.GetLong (getAddress offset))
-        getLong 3 |> should equal 0xEFBEADDEu
+        mmu.GetLong
+        |> withOffsetRelativeToSampleData 3
+        |> should equal 0xEFBEADDEu
     )
 
 [<Fact>]
 let ``GetLong: works for aligned access`` () =
     withMmu (fun mmu ->
-        let getLong (offset: int) = (mmu.GetLong (getAddress offset))
-        getLong 4 |> should equal 0xFFEFBEADu
+        mmu.GetLong
+        |> withOffsetRelativeToSampleData 4
+        |> should equal 0xFFEFBEADu
     )
     
 [<Fact>]
 let ``GetLong: throws when range exceeded by 1 byte`` () =
     withMmu (fun mmu ->
-        let getOutOfRangeLong () = mmu.GetLong (uint32 (memorySize - 1)) |> ignore
+        let getOutOfRangeLong () =
+            mmu.GetLong
+            |> withAbsoluteAddress (memorySize - 3)
+            |> ignore
         getOutOfRangeLong |> should throw typeof<IndexOutOfRangeException>
     )
