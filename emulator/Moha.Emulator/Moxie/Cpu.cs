@@ -51,25 +51,27 @@ namespace Moha.Emulator.Moxie
             Ip++;
 
             int signedA, signedB;
-            uint unsignedA, unsignedB, address;
+            uint address;
+            uint valueA = Registers[instruction.RegisterA];
+            uint valueB = Registers[instruction.RegisterB];
             ulong ulongResult;
             switch (instruction.Opcode)
             {
                 case Opcode.And:
-                    Registers[instruction.RegisterA] = Registers[instruction.RegisterA] & Registers[instruction.RegisterB];
+                    valueA = valueA & valueB;
                     break;
 
                 case Opcode.Add:
-                    Registers[instruction.RegisterA] = Registers[instruction.RegisterA] + Registers[instruction.RegisterB];
+                    valueA = valueA + valueB;
                     break;
 
                 case Opcode.Ashl:
-                    Registers[instruction.RegisterA] = (uint)((int)Registers[instruction.RegisterA] << (int)Registers[instruction.RegisterB]);
+                    valueA = (uint)((int)valueA << (int)valueB);
                     // TODO test
                     break;
 
                 case Opcode.Ashr:
-                    Registers[instruction.RegisterA] = (uint)((int)Registers[instruction.RegisterA] >> (int)Registers[instruction.RegisterB]);
+                    valueA = (uint)((int)valueA >> (int)valueB);
                     // TODO test
                     break;
 
@@ -148,21 +150,19 @@ namespace Moha.Emulator.Moxie
                     break;
 
                 case Opcode.Cmp:
-                    unsignedA = Registers[instruction.RegisterA];
-                    unsignedB = Registers[instruction.RegisterB];
-                    signedA = (int)unsignedA;
-                    signedB = (int)unsignedB;
-                    CompareStatusUnsigned = unsignedA.CompareTo(unsignedB);
+                    signedA = (int)valueA;
+                    signedB = (int)valueB;
+                    CompareStatusUnsigned = valueA.CompareTo(valueB);
                     CompareStatusSigned = signedA.CompareTo(signedB);
                     break;
 
                 case Opcode.Dec:
-                    Registers[instruction.RegisterA] = (uint)(Registers[instruction.RegisterA] - instruction.Value);
+                    valueA = (uint)(valueA - instruction.Value);
                     break;
 
                 case Opcode.Div:
-                    signedA = (int)Registers[instruction.RegisterA];
-                    signedB = (int)Registers[instruction.RegisterB];
+                    signedA = (int)valueA;
+                    signedB = (int)valueB;
                     if (signedB == 0)
                     {
                         ExecutionException.Throw(ExecutionError.DivisionByZero);
@@ -171,25 +171,25 @@ namespace Moha.Emulator.Moxie
                     {
                         unchecked
                         {
-                            Registers[instruction.RegisterA] = (uint)int.MinValue;
+                            valueA = (uint)int.MinValue;
                         }
                     }
                     else
                     {
-                        Registers[instruction.RegisterA] = (uint)(signedA / signedB);
+                        valueA = (uint)(signedA / signedB);
                     }
                     break;
 
                 case Opcode.Gsr:
-                    Registers[instruction.RegisterA] = SpecialRegisters[instruction.Value];
+                    valueA = SpecialRegisters[instruction.Value];
                     break;
 
                 case Opcode.Inc:
-                    Registers[instruction.RegisterA] = (uint)(Registers[instruction.RegisterA] + instruction.Value);
+                    valueA = (uint)(valueA + instruction.Value);
                     break;
 
                 case Opcode.Jmp:
-                    Jump(Registers[instruction.RegisterA]);
+                    Jump(valueA);
                     break;
 
                 case Opcode.Jmpa:
@@ -198,7 +198,7 @@ namespace Moha.Emulator.Moxie
 
                 case Opcode.Jsr:
                     Push(SP_REGISTER_INDEX, (uint)Ip);
-                    Jump(Registers[instruction.RegisterA]);
+                    Jump(valueA);
                     break;
 
                 case Opcode.Jsra:
@@ -207,110 +207,110 @@ namespace Moha.Emulator.Moxie
                     break;
 
                 case Opcode.LdB:
-                    Registers[instruction.RegisterA] = _memory.GetByte(Registers[instruction.RegisterB]);
+                    valueA = _memory.GetByte(valueB);
                     break;
 
                 case Opcode.LdL:
-                    Registers[instruction.RegisterA] = _memory.GetLong(Registers[instruction.RegisterB]);
+                    valueA = _memory.GetLong(valueB);
                     break;
 
                 case Opcode.LdS:
-                    Registers[instruction.RegisterA] = _memory.GetShort(Registers[instruction.RegisterB]);
+                    valueA = _memory.GetShort(valueB);
                     break;
 
                 case Opcode.LdaB:
-                    Registers[instruction.RegisterA] = _memory.GetByte(GetLongImmediate());
+                    valueA = _memory.GetByte(GetLongImmediate());
                     Ip += 2;
                     break;
 
                 case Opcode.LdaL:
-                    Registers[instruction.RegisterA] = _memory.GetLong(GetLongImmediate());
+                    valueA = _memory.GetLong(GetLongImmediate());
                     Ip += 2;
                     break;
 
                 case Opcode.LdaS:
-                    Registers[instruction.RegisterA] = _memory.GetShort(GetLongImmediate());
+                    valueA = _memory.GetShort(GetLongImmediate());
                     Ip += 2;
                     break;
 
                 case Opcode.LdiL:
-                    Registers[instruction.RegisterA] = GetLongImmediate();
+                    valueA = GetLongImmediate();
                     break;
 
                 case Opcode.LdiB:
-                    Registers[instruction.RegisterA] = GetLongImmediate() & 0xFF;
+                    valueA = GetLongImmediate() & 0xFF;
                     Break("ldi.b executed, check if result correct"); // TODO test is this and needed and correct
                     break;
 
                 case Opcode.LdiS:
-                    Registers[instruction.RegisterA] = GetLongImmediate() & 0xFFFF;
+                    valueA = GetLongImmediate() & 0xFFFF;
                     Break("ldi.s executed, check if result correct"); // TODO test is this and needed and correct
                     break;
 
                 case Opcode.LdoB:
-                    address = (uint)(Registers[instruction.RegisterB] + GetShortSignedImmediate());
-                    Registers[instruction.RegisterA] = _memory.GetByte(address);
+                    address = (uint)(valueB + GetShortSignedImmediate());
+                    valueA = _memory.GetByte(address);
                     break;
 
                 case Opcode.LdoL:
-                    address = (uint)(Registers[instruction.RegisterB] + GetShortSignedImmediate());
-                    Registers[instruction.RegisterA] = _memory.GetLong(address);
+                    address = (uint)(valueB + GetShortSignedImmediate());
+                    valueA = _memory.GetLong(address);
                     break;
 
                 case Opcode.LdoS:
-                    address = (uint)(Registers[instruction.RegisterB] + GetShortSignedImmediate());
-                    Registers[instruction.RegisterA] = _memory.GetShort(address);
+                    address = (uint)(valueB + GetShortSignedImmediate());
+                    valueA = _memory.GetShort(address);
                     break;
 
                 case Opcode.Lshr:
-                    Registers[instruction.RegisterA] = Registers[instruction.RegisterA] >> (int)Registers[instruction.RegisterB];
+                    valueA = valueA >> (int)valueB;
                     // TODO test
                     break;
 
                 case Opcode.Mod:
-                    signedA = (int)Registers[instruction.RegisterA];
-                    signedB = (int)Registers[instruction.RegisterB];
-                    Registers[instruction.RegisterA] = (uint)(signedA % signedB);
+                    signedA = (int)valueA;
+                    signedB = (int)valueB;
+                    valueA = (uint)(signedA % signedB);
                     break;
 
                 case Opcode.Mul:
-                    signedA = (int)Registers[instruction.RegisterA];
-                    signedB = (int)Registers[instruction.RegisterB];
+                    signedA = (int)valueA;
+                    signedB = (int)valueB;
                     ulongResult = (ulong)(signedA * signedB);
-                    Registers[instruction.RegisterA] = (uint)ulongResult;
+                    valueA = (uint)ulongResult;
                     break;
 
                 case Opcode.MulX:
-                    signedA = (int)Registers[instruction.RegisterA];
-                    signedB = (int)Registers[instruction.RegisterB];
+                    signedA = (int)valueA;
+                    signedB = (int)valueB;
                     ulongResult = (ulong)(signedA * signedB);
                     ulongResult >>= 32;
-                    Registers[instruction.RegisterA] = (uint)ulongResult;
+                    valueA = (uint)ulongResult;
                     break;
 
                 case Opcode.Neg:
-                    signedB = (int)Registers[instruction.RegisterB];
+                    signedB = (int)valueB;
                     signedB = -signedB;
-                    Registers[instruction.RegisterA] = (uint)signedB;
+                    valueA = (uint)signedB;
                     break;
 
                 case Opcode.Nop:
                     break;
 
                 case Opcode.Not:
-                    Registers[instruction.RegisterA] = ~Registers[instruction.RegisterB];
+                    valueA = ~valueB;
                     break;
 
                 case Opcode.Or:
-                    Registers[instruction.RegisterA] |= Registers[instruction.RegisterB];
+                    valueA |= valueB;
                     break;
 
                 case Opcode.Pop:
-                    Registers[instruction.RegisterB] = Pop(instruction.RegisterA);
+                    valueB = Pop(instruction.RegisterA);
                     break;
 
                 case Opcode.Push:
-                    Push(instruction.RegisterA, Registers[instruction.RegisterB]);
+                    Push(instruction.RegisterA, valueB);
                     break;
 
                 case Opcode.Ret:
@@ -319,58 +319,58 @@ namespace Moha.Emulator.Moxie
                     break;
 
                 case Opcode.SexB:
-                    Registers[instruction.RegisterA] = (uint)(sbyte)Registers[instruction.RegisterB];
+                    valueA = (uint)(sbyte)valueB;
                     break;
 
                 case Opcode.SexS:
-                    Registers[instruction.RegisterA] = (uint)(short)Registers[instruction.RegisterB];
+                    valueA = (uint)(short)valueB;
                     break;
 
                 case Opcode.Ssr:
-                    SpecialRegisters[instruction.Value] = Registers[instruction.RegisterA];
+                    SpecialRegisters[instruction.Value] = valueA;
                     break;
 
                 case Opcode.StB:
-                    _memory.StoreByte(Registers[instruction.RegisterA], (byte)Registers[instruction.RegisterB]);
+                    _memory.StoreByte(valueA, (byte)valueB);
                     break;
 
                 case Opcode.StL:
-                    _memory.StoreLong(Registers[instruction.RegisterA], Registers[instruction.RegisterB]);
+                    _memory.StoreLong(valueA, valueB);
                     break;
 
                 case Opcode.StS:
-                    _memory.StoreShort(Registers[instruction.RegisterA], (ushort)Registers[instruction.RegisterB]);
+                    _memory.StoreShort(valueA, (ushort)valueB);
                     break;
 
                 case Opcode.StaB:
-                    _memory.StoreByte(GetLongImmediate(), (byte)Registers[instruction.RegisterA]);
+                    _memory.StoreByte(GetLongImmediate(), (byte)valueA);
                     break;
 
                 case Opcode.StaL:
-                    _memory.StoreLong(GetLongImmediate(), Registers[instruction.RegisterA]);
+                    _memory.StoreLong(GetLongImmediate(), valueA);
                     break;
 
                 case Opcode.StaS:
-                    _memory.StoreShort(GetLongImmediate(), (ushort)Registers[instruction.RegisterA]);
+                    _memory.StoreShort(GetLongImmediate(), (ushort)valueA);
                     break;
 
                 case Opcode.StoB:
-                    address = (uint)(Registers[instruction.RegisterA] + GetShortSignedImmediate());
-                    _memory.StoreByte(address, (byte)Registers[instruction.RegisterB]);
+                    address = (uint)(valueA + GetShortSignedImmediate());
+                    _memory.StoreByte(address, (byte)valueB);
                     break;
 
                 case Opcode.StoL:
-                    address = (uint)(Registers[instruction.RegisterA] + GetShortSignedImmediate());
-                    _memory.StoreLong(address, Registers[instruction.RegisterB]);
+                    address = (uint)(valueA + GetShortSignedImmediate());
+                    _memory.StoreLong(address, valueB);
                     break;
 
                 case Opcode.StoS:
-                    address = (uint)(Registers[instruction.RegisterA] + GetShortSignedImmediate());
-                    _memory.StoreShort(address, (ushort)Registers[instruction.RegisterB]);
+                    address = (uint)(valueA + GetShortSignedImmediate());
+                    _memory.StoreShort(address, (ushort)valueB);
                     break;
 
                 case Opcode.Sub:
-                    Registers[instruction.RegisterA] = Registers[instruction.RegisterA] - Registers[instruction.RegisterB];
+                    valueA = valueA - valueB;
                     break;
 
                 case Opcode.Swi:
@@ -378,35 +378,38 @@ namespace Moha.Emulator.Moxie
                     break;
 
                 case Opcode.Udiv:
-                    Registers[instruction.RegisterA] /= Registers[instruction.RegisterB];
+                    valueA /= valueB;
                     break;
 
                 case Opcode.Umod:
-                    Registers[instruction.RegisterA] %= Registers[instruction.RegisterB];
+                    valueA %= valueB;
                     break;
 
                 case Opcode.UmulX:
-                    ulongResult = Registers[instruction.RegisterA] * Registers[instruction.RegisterB];
+                    ulongResult = valueA * valueB;
                     ulongResult >>= 32;
-                    Registers[instruction.RegisterA] = (uint)ulongResult;
+                    valueA = (uint)ulongResult;
                     break;
 
                 case Opcode.Xor:
-                    Registers[instruction.RegisterA] ^= Registers[instruction.RegisterB];
+                    valueA ^= valueB;
                     break;
 
                 case Opcode.ZexB:
-                    Registers[instruction.RegisterA] = Registers[instruction.RegisterB] & 0xFF;
+                    valueA = valueB & 0xFF;
                     break;
 
                 case Opcode.ZexS:
-                    Registers[instruction.RegisterA] = Registers[instruction.RegisterB] & 0xFFFF;
+                    valueA = valueB & 0xFFFF;
                     break;
 
                 default:
                     ExecutionException.Throw(ExecutionError.IllegalOpcode);
                     break;
             }
+
+            Registers[instruction.RegisterA] = valueA;
+            Registers[instruction.RegisterB] = valueB;
         }
 
         private void Exception(uint type)
