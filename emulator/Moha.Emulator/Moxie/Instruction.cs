@@ -10,12 +10,12 @@
         public Instruction(int opcode, int registerA, int registerB, int value)
         {
             Opcode = (Opcode) opcode;
-            RegisterA = registerA;
-            RegisterB = registerB;
+            RegisterA = registerA & 0xF;
+            RegisterB = registerB & 0xF;
             Value = value;
         }
 
-        public Instruction(int opcode, int value) : this(opcode, -1, -1, value)
+        public Instruction(int opcode, int value) : this(opcode, 0, 0, value)
         { }
 
         public Instruction(int opcode, int registerA, int registerB) : this(opcode, registerA, registerB, 0)
