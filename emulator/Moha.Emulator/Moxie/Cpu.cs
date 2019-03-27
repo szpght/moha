@@ -67,12 +67,10 @@ namespace Moha.Emulator.Moxie
 
                 case Opcode.Ashl:
                     valueA = (uint)((int)valueA << (int)valueB);
-                    // TODO test
                     break;
 
                 case Opcode.Ashr:
                     valueA = (uint)((int)valueA >> (int)valueB);
-                    // TODO test
                     break;
 
                 case Opcode.Beq:
@@ -239,12 +237,10 @@ namespace Moha.Emulator.Moxie
 
                 case Opcode.LdiB:
                     valueA = GetLongImmediate() & 0xFF;
-                    Break("ldi.b executed, check if result correct"); // TODO test is this and needed and correct
                     break;
 
                 case Opcode.LdiS:
                     valueA = GetLongImmediate() & 0xFFFF;
-                    Break("ldi.s executed, check if result correct"); // TODO test is this and needed and correct
                     break;
 
                 case Opcode.LdoB:
@@ -264,7 +260,6 @@ namespace Moha.Emulator.Moxie
 
                 case Opcode.Lshr:
                     valueA = valueA >> (int)valueB;
-                    // TODO test
                     break;
 
                 case Opcode.Mod:
