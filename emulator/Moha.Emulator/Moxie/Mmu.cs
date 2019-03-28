@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -31,47 +32,32 @@ namespace Moha.Emulator.Moxie
 
         public byte GetByte(uint address)
         {
-            var index = (int)(address / 2);
-            var ushortMemory = _memory.AsSpan(index);
-            var byteMemory = MemoryMarshal.Cast<ushort, byte>(ushortMemory);
-            var memoryIndex = address % 2;
-            return byteMemory[(int)memoryIndex];
+            return GetByteSpan(address)[0];
         }
 
         public ushort GetShort(uint address)
         {
-            var index = address / 2;
-            if (address % 2 == 0)
-            {
-                return _memory[index];
-            }
-
-            var span = _memory.AsSpan((int)index);
-            var byteSpan = MemoryMarshal.Cast<ushort, byte>(span);
-            return (ushort)(byteSpan[1] + (byteSpan[2] << 8));
+            return GetShortSpan(address)[0];
         }
 
         public uint GetLong(uint address)
         {
-            var index = address / 2;
-            var byteMemory = MemoryMarshal.Cast<ushort, byte>(_memory.AsSpan((int)index));
-            byteMemory = byteMemory.Slice((int)(address % 2));
-            return MemoryMarshal.Cast<byte, uint>(byteMemory)[0];
+            return GetLongSpan(address)[0];
         }
 
         public void StoreByte(uint address, byte value)
         {
-            throw new NotImplementedException();
+            GetByteSpan(address)[0] = value;
         }
 
         public void StoreShort(uint address, ushort value)
         {
-            throw new NotImplementedException();
+            GetShortSpan(address)[0] = value;
         }
 
         public void StoreLong(uint address, uint value)
         {
-            throw new NotImplementedException();
+            GetLongSpan(address)[0] = value;
         }
 
         /// <summary>
@@ -92,6 +78,25 @@ namespace Moha.Emulator.Moxie
             {
                 throw new Exception($"{name} must be even");
             }
+        }
+
+        private Span<byte> GetByteSpan(uint address)
+        {
+            var index = (int)(address / 2);
+            var ushortMemory = _memory.AsSpan(index);
+            var byteMemory = MemoryMarshal.Cast<ushort, byte>(ushortMemory);
+            var memoryIndex = address % 2;
+            return byteMemory.Slice((int)memoryIndex);
+        }
+
+        private Span<ushort> GetShortSpan(uint address)
+        {
+            return MemoryMarshal.Cast<byte, ushort>(GetByteSpan(address));
+        }
+
+        private Span<uint> GetLongSpan(uint address)
+        {
+            return MemoryMarshal.Cast<byte, uint>(GetByteSpan(address));
         }
     }
 }

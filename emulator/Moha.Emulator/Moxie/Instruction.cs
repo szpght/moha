@@ -1,5 +1,8 @@
-﻿namespace Moha.Emulator.Moxie
+﻿using System.Diagnostics;
+
+namespace Moha.Emulator.Moxie
 {
+    [DebuggerDisplay("{ToString(),nq}")]
     struct Instruction
     {
         public readonly Opcode Opcode;
@@ -20,5 +23,7 @@
 
         public Instruction(int opcode, int registerA, int registerB) : this(opcode, registerA, registerB, 0)
         { }
+
+        public override string ToString() => $"{Opcode}({(Register)RegisterA}, {(Register)RegisterB}, {Value})";
     }
 }

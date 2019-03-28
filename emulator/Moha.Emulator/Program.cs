@@ -14,19 +14,12 @@ namespace Moha.Emulator
     {
         static void Main(string[] args)
         {
-            uint a = 200;
-            uint b;
-            unchecked
-            {
-                b = (uint)(sbyte)a;
-            }
-
             const int memorySize = 16 * 1024 * 1024;
             var mmu = new Mmu(memorySize);
             var decoder = new InstructionDecoder();
             var cpu = new Cpu(mmu, decoder);
 
-            var elf = ELFReader.Load<uint>("D:\\memory");
+            var elf = ELFReader.Load<uint>("D:\\e");
             var startAddress = elf.EntryPoint;
             var loadableSegments = elf.Segments.Where(s => s.Type == SegmentType.Load);
             foreach (var segment in loadableSegments)
