@@ -449,6 +449,7 @@ namespace Moha.Emulator.Moxie
 
         private void ReturnFromSubroutine()
         {
+            Sp = Fp;
             Fp = Pop(SP_REGISTER_INDEX);
             Ip = (int)Pop(SP_REGISTER_INDEX);
             Pop(SP_REGISTER_INDEX);
