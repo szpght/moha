@@ -7,7 +7,12 @@ open System
 let instructionDecoder = new InstructionDecoder();
 
 let forEachOpcodeOf opcodes test =
-    for opcode in opcodes do
+    let shiftedOpcodes =
+        opcodes
+        |> Seq.cast<int>
+        |> Seq.map (fun x -> x <<< 8)
+        |> Seq.cast<Opcode>
+    for opcode in shiftedOpcodes do
         test opcode
 
 let ``6-bit opcodes`` = [Opcode.Beq; Opcode.Bge; Opcode.Bgeu;
@@ -25,7 +30,6 @@ let ``6-bit opcode: 10-bit parameter should be treated as signed`` (rawValue, ex
         let encodedInstruction = uint16 opcode ||| uint16 rawValue
         let instruction = instructionDecoder.Decode <| encodedInstruction
         instruction.Value |> should equal expectedDecodedValue
-        instruction.Opcode |> should equal opcode
     )
 
 let ``4-bit opcodes`` =
@@ -40,7 +44,6 @@ let ``4-bit opcode: 8-bit parameter should be treated as unsigned`` (rawValue, e
         let encodedInstruction = uint16 opcode ||| uint16 rawValue
         let instruction = instructionDecoder.Decode encodedInstruction
         instruction.Value |> should equal expectedDecodedValue
-        instruction.Opcode |> should equal opcode
     )
 
 [<Theory>]
@@ -51,7 +54,6 @@ let ``4-bit opcode: register A encoded in bits 8-11`` (register, expectedDecoded
         let encodedInstruction = uint16 opcode ||| (uint16 register <<< 8)
         let instruction = instructionDecoder.Decode encodedInstruction
         instruction.RegisterA |> should equal register
-        instruction.Opcode |> should equal opcode
     )
 
 let ``8-bit opcodes`` =
@@ -68,7 +70,6 @@ let ``8-bit opcode: register A encoded in bits 4-7`` (register, expectedDecodedV
         let encodedInstruction = uint16 opcode ||| (uint16 register <<< 4)
         let instruction = instructionDecoder.Decode encodedInstruction
         instruction.RegisterA |> should equal register
-        instruction.Opcode |> should equal opcode
     )
 
 [<Theory>]
@@ -79,5 +80,4 @@ let ``8-bit opcode: register B encoded in bits 0-3`` (register, expectedDecodedV
         let encodedInstruction = uint16 opcode ||| (uint16 register <<< 0)
         let instruction = instructionDecoder.Decode encodedInstruction
         instruction.RegisterB |> should equal register
-        instruction.Opcode |> should equal opcode
     )
