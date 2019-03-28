@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Moha.Emulator.Moxie
@@ -11,6 +12,9 @@ namespace Moha.Emulator.Moxie
         const int SP_REGISTER_INDEX = 1;
         readonly Mmu _memory;
         readonly InstructionDecoder _decoder;
+
+        long _instructionsExecuted = 0;
+        public long InstructionsExecuted => _instructionsExecuted;
 
         public Cpu(Mmu mmu, InstructionDecoder decoder)
         {
@@ -41,16 +45,17 @@ namespace Moha.Emulator.Moxie
             Fp = Sp;
             Ip = startAddress / 2;
 
-            while (true)
+            bool run = true;
+            while (run)
             {
-                ExecuteNextInstruction();
+                run = ExecuteNextInstruction();
             }
         }
 
-        private void ExecuteNextInstruction()
+        private bool ExecuteNextInstruction()
         {
             var instruction = _decoder.Decode(_memory[Ip]);
-            Console.WriteLine($"{Ip * 2:X}: {instruction}");
+            //Console.WriteLine($"{Ip * 2:X}: {instruction}");
             Ip++;
 
             int signedA, signedB;
@@ -146,6 +151,7 @@ namespace Moha.Emulator.Moxie
                     break;
 
                 case Opcode.Brk:
+                    return false;
                     Break();
                     break;
 
@@ -406,6 +412,9 @@ namespace Moha.Emulator.Moxie
                     ExecutionException.Throw(ExecutionError.IllegalOpcode);
                     break;
             }
+
+            _instructionsExecuted += 1;
+            return true;
         }
 
         private void Exception(uint type)
@@ -416,7 +425,7 @@ namespace Moha.Emulator.Moxie
         private uint GetLongImmediate()
         {
             var value = _memory.GetLongAtIndex(Ip);
-            Console.WriteLine($"Long parameter: {value}");
+            //Console.WriteLine($"Long parameter: {value}");
             Ip += 2;
             return value;
         }
@@ -424,7 +433,7 @@ namespace Moha.Emulator.Moxie
         private short GetShortSignedImmediate()
         {
             var value = (short)_memory[Ip++];
-            Console.WriteLine($"Long parameter: {value}");
+            ///Console.WriteLine($"Long parameter: {value}");
             return value;
         }
 
