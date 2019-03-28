@@ -15,6 +15,7 @@ namespace Moha.Emulator.Moxie
 
         long _instructionsExecuted = 0;
         public long InstructionsExecuted => _instructionsExecuted;
+        public void Reset() => _instructionsExecuted = 0;
 
         public Cpu(Mmu mmu, InstructionDecoder decoder)
         {

@@ -41,6 +41,30 @@ namespace Moha.Emulator
             Console.WriteLine(stoper.ElapsedMilliseconds);
             Console.WriteLine(cpu.InstructionsExecuted);
             Console.WriteLine($"{(double)cpu.InstructionsExecuted / stoper.ElapsedMilliseconds / 1000} MIPS");
+            cpu.Reset();
+
+
+            stoper = Stopwatch.StartNew();
+            for (var i = 0; i < 100; ++i)
+            {
+                cpu.Execute((int)startAddress);
+            }
+            stoper.Stop();
+            Console.WriteLine(stoper.ElapsedMilliseconds);
+            Console.WriteLine(cpu.InstructionsExecuted);
+            Console.WriteLine($"{(double)cpu.InstructionsExecuted / stoper.ElapsedMilliseconds / 1000} MIPS");
+            cpu.Reset();
+
+
+            stoper = Stopwatch.StartNew();
+            for (var i = 0; i < 100; ++i)
+            {
+                cpu.Execute((int)startAddress);
+            }
+            stoper.Stop();
+            Console.WriteLine(stoper.ElapsedMilliseconds);
+            Console.WriteLine(cpu.InstructionsExecuted);
+            Console.WriteLine($"{(double)cpu.InstructionsExecuted / stoper.ElapsedMilliseconds / 1000} MIPS");
         }
     }
 }
