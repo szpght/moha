@@ -431,7 +431,7 @@ namespace Moha.Emulator.Moxie
 
         private uint GetLongImmediate()
         {
-            var value = _memory.GetLongAtIndex(Ip);
+            var value = _memory.GetLong((uint)Ip * 2);
             //Console.WriteLine($"Long parameter: {value}");
             Ip += 2;
             return value;

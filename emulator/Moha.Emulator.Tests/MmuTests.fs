@@ -111,9 +111,3 @@ let ``StoreLong: stored value can be retrieved`` () =
         mmu.StoreLong(exampleStoreAddress, 0xDEADBAADul)
         mmu.GetLong(exampleStoreAddress) |> should equal 0xDEADBAADul
     )
-
-[<Fact>]
-let ``GetLongAtIndex: gets short value from 16-bit based index`` () =
-    withMmu (fun mmu ->
-        mmu.GetLongAtIndex(destinationIndex + 2) |> should equal 0xFFEFBEADul
-    )

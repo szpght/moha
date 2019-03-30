@@ -102,16 +102,6 @@ namespace Moha.Emulator.Moxie
             }
         }
 
-        /// <summary>
-        /// This method works on memory aligned to short boundary
-        /// </summary>
-        /// <param name="index">Index in _memory array where requested long starts</param>
-        /// <returns></returns>
-        public uint GetLongAtIndex(int index)
-        {
-            return GetLong((uint)index * 2);
-        }
-
         public void CheckAlignment(long offset, string name)
         {
             if (offset % 2 > 0)
