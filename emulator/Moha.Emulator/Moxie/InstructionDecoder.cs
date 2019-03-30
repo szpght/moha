@@ -1,4 +1,6 @@
-﻿namespace Moha.Emulator.Moxie
+﻿using System.Runtime.CompilerServices;
+
+namespace Moha.Emulator.Moxie
 {
     class InstructionDecoder
     {
@@ -19,15 +21,15 @@
             else if (highestBits == 0x8000)
             {
                 var opcode = shiftedForOpcodeExtraction & 0xF0;
-                var register = (encodedInstruction >> 8) & 0xF;
+                var register = encodedInstruction >> 8;
                 var value = encodedInstruction & 0xFF;
                 return new Instruction(opcode, register, 0, value);
             }
             else
             {
                 var opcode = shiftedForOpcodeExtraction & 0xFF;
-                var registerA = (encodedInstruction >> 4) & 0xF;
-                var registerB = encodedInstruction & 0xF;
+                var registerA = encodedInstruction >> 4;
+                var registerB = encodedInstruction;
                 return new Instruction(opcode, registerA, registerB);
             }
         }
