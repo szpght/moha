@@ -32,32 +32,74 @@ namespace Moha.Emulator.Moxie
 
         public byte GetByte(uint address)
         {
-            return GetByteSpan(address)[0];
+            if (address >= Size) throw new IndexOutOfRangeException();
+            unsafe
+            {
+                fixed (ushort* x = &_memory[0])
+                {
+                    return *((byte*)x + address);
+                }
+            }
         }
 
         public ushort GetShort(uint address)
         {
-            return GetShortSpan(address)[0];
+            if (address > Size - 2) throw new IndexOutOfRangeException();
+            unsafe
+            {
+                fixed (ushort* x = &_memory[0])
+                {
+                    return *(ushort*)((byte*)x + address);
+                }
+            }
         }
 
         public uint GetLong(uint address)
         {
-            return GetLongSpan(address)[0];
+            if (address > Size - 4) throw new IndexOutOfRangeException();
+            unsafe
+            {
+                fixed (ushort* x = &_memory[0])
+                {
+                    return *(uint*)((byte*)x + address);
+                }
+            }
         }
 
         public void StoreByte(uint address, byte value)
         {
-            GetByteSpan(address)[0] = value;
+            if (address >= Size) throw new IndexOutOfRangeException();
+            unsafe
+            {
+                fixed(ushort* x = &_memory[0])
+                {
+                    *(((byte*)x) + address) = value;
+                }
+            }
         }
 
         public void StoreShort(uint address, ushort value)
         {
-            GetShortSpan(address)[0] = value;
+            if (address > Size - 2) throw new IndexOutOfRangeException();
+            unsafe
+            {
+                fixed (ushort* x = &_memory[0])
+                {
+                    *(ushort*)(((byte*)x) + address) = value;
+                }
+            }
         }
 
         public void StoreLong(uint address, uint value)
         {
-            GetLongSpan(address)[0] = value;
+            if (address > Size - 4) throw new IndexOutOfRangeException();
+            unsafe
+            {
+                fixed (ushort* x = &_memory[0])
+                {
+                    *(uint*)(((byte*)x) + address) = value;
+                }
+            }
         }
 
         /// <summary>
@@ -67,9 +109,7 @@ namespace Moha.Emulator.Moxie
         /// <returns></returns>
         public uint GetLongAtIndex(int index)
         {
-            var memoryAreaWithTheLong = _memory.AsSpan(index, 4);
-            var castedMemory = MemoryMarshal.Cast<ushort, uint>(memoryAreaWithTheLong);
-            return castedMemory[0];
+            return GetLong((uint)index * 2);
         }
 
         public void CheckAlignment(long offset, string name)
@@ -78,25 +118,6 @@ namespace Moha.Emulator.Moxie
             {
                 throw new Exception($"{name} must be even");
             }
-        }
-
-        private Span<byte> GetByteSpan(uint address)
-        {
-            var index = (int)(address / 2);
-            var ushortMemory = _memory.AsSpan(index);
-            var byteMemory = MemoryMarshal.Cast<ushort, byte>(ushortMemory);
-            var memoryIndex = address % 2;
-            return byteMemory.Slice((int)memoryIndex);
-        }
-
-        private Span<ushort> GetShortSpan(uint address)
-        {
-            return MemoryMarshal.Cast<byte, ushort>(GetByteSpan(address));
-        }
-
-        private Span<uint> GetLongSpan(uint address)
-        {
-            return MemoryMarshal.Cast<byte, uint>(GetByteSpan(address));
         }
     }
 }

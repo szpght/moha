@@ -14,6 +14,7 @@ namespace Moha.Emulator.Moxie
         readonly InstructionDecoder _decoder;
 
         long _instructionsExecuted = 0;
+        public readonly Dictionary<Opcode, int> _opcodesExecuted = new Dictionary<Opcode, int>();
         public long InstructionsExecuted => _instructionsExecuted;
         public void Reset() => _instructionsExecuted = 0;
 
@@ -56,6 +57,11 @@ namespace Moha.Emulator.Moxie
         private bool ExecuteNextInstruction()
         {
             var instruction = _decoder.Decode(_memory[Ip]);
+            //var opcode = instruction.Opcode;
+            //int count;
+            //_opcodesExecuted.TryGetValue(opcode, out count);
+            //count += 1;
+            //_opcodesExecuted[opcode] = count;
             //Console.WriteLine($"{Ip * 2:X}: {instruction}");
             Ip++;
 
