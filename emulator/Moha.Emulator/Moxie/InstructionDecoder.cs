@@ -6,8 +6,15 @@ namespace Moha.Emulator.Moxie
     {
         public Instruction Decode(ushort encodedInstruction)
         {
-            var highestBits = encodedInstruction & 0xC000;
             var shiftedForOpcodeExtraction = encodedInstruction >> 8;
+            if ((encodedInstruction & 0xC000) == 0)
+            {
+                var opcode = shiftedForOpcodeExtraction & 0xFF;
+                var registerA = encodedInstruction >> 4;
+                var registerB = encodedInstruction;
+                return new Instruction(opcode, registerA, registerB);
+            }
+            var highestBits = encodedInstruction & 0xC000;
             if (highestBits == 0xC000)
             {
                 var opcode = shiftedForOpcodeExtraction & 0xFC;
@@ -18,19 +25,12 @@ namespace Moha.Emulator.Moxie
                 }
                 return new Instruction(opcode, value);
             }
-            else if (highestBits == 0x8000)
+            else
             {
                 var opcode = shiftedForOpcodeExtraction & 0xF0;
                 var register = encodedInstruction >> 8;
                 var value = encodedInstruction & 0xFF;
                 return new Instruction(opcode, register, 0, value);
-            }
-            else
-            {
-                var opcode = shiftedForOpcodeExtraction & 0xFF;
-                var registerA = encodedInstruction >> 4;
-                var registerB = encodedInstruction;
-                return new Instruction(opcode, registerA, registerB);
             }
         }
     }
