@@ -11,6 +11,7 @@ namespace Moha.Emulator.Moxie
         public Mmu(int size)
         {
             CheckAlignment(size, nameof(size));
+            CheckMemorySize(size);
             _memory = new ushort[size / 2];
             Size = size;
             InitializeTlb();
@@ -149,6 +150,14 @@ namespace Moha.Emulator.Moxie
             fixed (ushort* x = &_memory[0])
             {
                 return ((byte*)x) + address;
+            }
+        }
+
+        private void CheckMemorySize(long size)
+        {
+            if (size < 85000)
+            {
+                throw new ArgumentOutOfRangeException("Memory size must be at least 85000 bytes so it lands on LOH");
             }
         }
     }

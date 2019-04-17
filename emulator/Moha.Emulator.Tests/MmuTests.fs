@@ -5,7 +5,7 @@ open Moha.Emulator.Moxie
 open System
 open Swensen.Unquote
 
-let memorySize = 512
+let memorySize = 85000
 let destinationOffset = memorySize / 2 |> uint32
 let destinationIndex = (int destinationOffset) / 2
 let sampleData =
