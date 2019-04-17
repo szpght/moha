@@ -1,4 +1,4 @@
-﻿module MmuTests
+﻿module ``MMU``
 open Xunit
 open FsUnit.Xunit
 open Moha.Emulator.Moxie

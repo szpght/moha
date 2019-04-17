@@ -1,4 +1,4 @@
-﻿module InstructionDecoderTests
+﻿module ``Instruction decoder``
 open Xunit
 open FsUnit.Xunit
 open Moha.Emulator.Moxie
