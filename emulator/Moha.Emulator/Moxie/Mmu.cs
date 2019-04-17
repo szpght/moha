@@ -61,7 +61,7 @@ namespace Moha.Emulator.Moxie
             if (address >= Size) throw new IndexOutOfRangeException();
             unsafe
             {
-                return *GetMemoryAtPhysical(address);
+                return *NotCheckedGetMemoryAtPhysical(address);
             }
         }
 
@@ -70,7 +70,7 @@ namespace Moha.Emulator.Moxie
             if (address > Size - 2) throw new IndexOutOfRangeException();
             unsafe
             {
-                return *(ushort*)GetMemoryAtPhysical(address);
+                return *(ushort*)NotCheckedGetMemoryAtPhysical(address);
             }
         }
 
@@ -79,7 +79,7 @@ namespace Moha.Emulator.Moxie
             if (address > Size - 4) throw new IndexOutOfRangeException();
             unsafe
             {
-                return *(uint*)GetMemoryAtPhysical(address);
+                return *(uint*)NotCheckedGetMemoryAtPhysical(address);
             }
         }
 
@@ -88,7 +88,7 @@ namespace Moha.Emulator.Moxie
             if (address >= Size) throw new IndexOutOfRangeException();
             unsafe
             {
-                *GetMemoryAtPhysical(address) = value;
+                *NotCheckedGetMemoryAtPhysical(address) = value;
             }
         }
 
@@ -97,7 +97,7 @@ namespace Moha.Emulator.Moxie
             if (address > Size - 2) throw new IndexOutOfRangeException();
             unsafe
             {
-                *(ushort*)GetMemoryAtPhysical(address) = value;
+                *(ushort*)NotCheckedGetMemoryAtPhysical(address) = value;
             }
         }
 
@@ -106,7 +106,7 @@ namespace Moha.Emulator.Moxie
             if (address > Size - 4) throw new IndexOutOfRangeException();
             unsafe
             {
-                *(uint*)GetMemoryAtPhysical(address) = value;
+                *(uint*)NotCheckedGetMemoryAtPhysical(address) = value;
             }
         }
 
@@ -133,7 +133,7 @@ namespace Moha.Emulator.Moxie
             // TODO handle page boundary
             // TODO handle page ro/rw
             _tlb[index] = tlbEntry;
-            return GetMemoryAtPhysical(tlbEntry.PagePhysicalAddress + offset);
+            return NotCheckedGetMemoryAtPhysical(tlbEntry.PagePhysicalAddress + offset);
         }
 
         private TlbEntry WalkPageTables()
@@ -144,7 +144,7 @@ namespace Moha.Emulator.Moxie
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private unsafe byte* GetMemoryAtPhysical(uint address)
+        private unsafe byte* NotCheckedGetMemoryAtPhysical(uint address)
         {
             fixed (ushort* x = &_memory[0])
             {
