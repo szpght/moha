@@ -36,7 +36,7 @@ namespace Moha.Emulator.Moxie
             public uint entry;
 
             public uint PagePhysicalAddress => entry & 0xFFFFFC00;
-            public uint Rw => tag & 2;
+            public uint Rw => entry & 2;
         }
 
         public long Size { get; }
@@ -61,7 +61,7 @@ namespace Moha.Emulator.Moxie
             if (address >= Size) throw new IndexOutOfRangeException();
             unsafe
             {
-                return *GetMemoryAtVirtual(address);
+                return *GetMemoryAtPhysical(address);
             }
         }
 
@@ -88,10 +88,7 @@ namespace Moha.Emulator.Moxie
             if (address >= Size) throw new IndexOutOfRangeException();
             unsafe
             {
-                fixed(ushort* x = &_memory[0])
-                {
-                    *(((byte*)x) + address) = value;
-                }
+                *GetMemoryAtPhysical(address) = value;
             }
         }
 
@@ -100,10 +97,7 @@ namespace Moha.Emulator.Moxie
             if (address > Size - 2) throw new IndexOutOfRangeException();
             unsafe
             {
-                fixed (ushort* x = &_memory[0])
-                {
-                    *(ushort*)(((byte*)x) + address) = value;
-                }
+                *(ushort*)GetMemoryAtPhysical(address) = value;
             }
         }
 
@@ -112,10 +106,7 @@ namespace Moha.Emulator.Moxie
             if (address > Size - 4) throw new IndexOutOfRangeException();
             unsafe
             {
-                fixed (ushort* x = &_memory[0])
-                {
-                    *(uint*)(((byte*)x) + address) = value;
-                }
+                *(uint*)GetMemoryAtPhysical(address) = value;
             }
         }
 
@@ -133,24 +124,28 @@ namespace Moha.Emulator.Moxie
             var index = tag & 1023;
             var offset = address & 1023;
             var tlbEntry = _tlb[index];
-            if (tlbEntry.tag == tag)
+
+            if (tlbEntry.tag != tag)
             {
-                // TODO handle page boundary
-                // TODO handle page present
-                // TODO handle page ro/rw
-                return GetMemoryAtPhysical(tlbEntry.PagePhysicalAddress + offset);
+                tlbEntry = WalkPageTables();
             }
-            else
-            {
-                // TODO walk page tables, fill tlb
-                throw new NotImplementedException();
-            }
+
+            // TODO handle page boundary
+            // TODO handle page ro/rw
+            _tlb[index] = tlbEntry;
+            return GetMemoryAtPhysical(tlbEntry.PagePhysicalAddress + offset);
+        }
+
+        private TlbEntry WalkPageTables()
+        {
+            // TODO walk page tables, fill tlb
+            // TODO check if physical address do not exceed range
+            throw new IndexOutOfRangeException("Invalid memory access");
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private unsafe byte* GetMemoryAtPhysical(uint address)
         {
-            if (address >= Size) throw new IndexOutOfRangeException();
             fixed (ushort* x = &_memory[0])
             {
                 return ((byte*)x) + address;
