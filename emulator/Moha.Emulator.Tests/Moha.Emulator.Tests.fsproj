@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="VirtualMemoryTests.fs" />
     <Compile Include="MmuTests.fs" />
     <Compile Include="InstructionDecoderTests.fs" />
     <Compile Include="Program.fs" />

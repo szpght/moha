@@ -13,19 +13,30 @@ namespace Moha.Emulator.Moxie
             CheckAlignment(size, nameof(size));
             _memory = new ushort[size / 2];
             Size = size;
+            InitializeTlb();
+        }
 
-            _tlb[1].entry = 1;
-            _tlb[1].address = 1;
+        private void InitializeTlb()
+        {
+            // highest 12 bits of tag are always zeroed so we can 
+            // signal emtpy slot with one of them being set
+            // this way we check tag and page presentness in one comparison
+            for (int i = 0; i < _tlb.Length; i++)
+            {
+                _tlb[i].tag = uint.MaxValue;
+            }
+
+
+            _tlb[1].tag = 1;
         }
 
         struct TlbEntry
         {
-            public uint address;
+            public uint tag;
             public uint entry;
 
-            public uint Tag => address & 0xFFFFFFFE;
             public uint PagePhysicalAddress => entry & 0xFFFFFC00;
-            public uint Occupied => address & 1;
+            public uint Rw => tag & 2;
         }
 
         public long Size { get; }
@@ -50,7 +61,7 @@ namespace Moha.Emulator.Moxie
             if (address >= Size) throw new IndexOutOfRangeException();
             unsafe
             {
-                return *GetMemoryAtPhysical(address);
+                return *GetMemoryAtVirtual(address);
             }
         }
 
@@ -122,7 +133,7 @@ namespace Moha.Emulator.Moxie
             var index = tag & 1023;
             var offset = address & 1023;
             var tlbEntry = _tlb[index];
-            if (tlbEntry.Tag == tag)
+            if (tlbEntry.tag == tag)
             {
                 // TODO handle page boundary
                 // TODO handle page present
