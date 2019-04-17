@@ -13,10 +13,25 @@ namespace Moha.Emulator.Moxie
             CheckAlignment(size, nameof(size));
             _memory = new ushort[size / 2];
             Size = size;
+
+            _tlb[1].entry = 1;
+            _tlb[1].address = 1;
+        }
+
+        struct TlbEntry
+        {
+            public uint address;
+            public uint entry;
+
+            public uint Tag => address & 0xFFFFFFFE;
+            public uint PagePhysicalAddress => entry & 0xFFFFFC00;
+            public uint Occupied => address & 1;
         }
 
         public long Size { get; }
         readonly ushort[] _memory;
+        private uint _pageDirectory;
+        private readonly TlbEntry[] _tlb = new TlbEntry[1024];
 
         public ushort this[int index] => _memory[index];
 
@@ -35,10 +50,7 @@ namespace Moha.Emulator.Moxie
             if (address >= Size) throw new IndexOutOfRangeException();
             unsafe
             {
-                fixed (ushort* x = &_memory[0])
-                {
-                    return *((byte*)x + address);
-                }
+                return *GetMemoryAtPhysical(address);
             }
         }
 
@@ -47,10 +59,7 @@ namespace Moha.Emulator.Moxie
             if (address > Size - 2) throw new IndexOutOfRangeException();
             unsafe
             {
-                fixed (ushort* x = &_memory[0])
-                {
-                    return *(ushort*)((byte*)x + address);
-                }
+                return *(ushort*)GetMemoryAtPhysical(address);
             }
         }
 
@@ -59,10 +68,7 @@ namespace Moha.Emulator.Moxie
             if (address > Size - 4) throw new IndexOutOfRangeException();
             unsafe
             {
-                fixed (ushort* x = &_memory[0])
-                {
-                    return *(uint*)((byte*)x + address);
-                }
+                return *(uint*)GetMemoryAtPhysical(address);
             }
         }
 
@@ -102,11 +108,41 @@ namespace Moha.Emulator.Moxie
             }
         }
 
-        public void CheckAlignment(long offset, string name)
+        private void CheckAlignment(long offset, string name)
         {
             if (offset % 2 > 0)
             {
                 throw new Exception($"{name} must be even");
+            }
+        }
+
+        private unsafe byte* GetMemoryAtVirtual(uint address)
+        {
+            var tag = address >> 12;
+            var index = tag & 1023;
+            var offset = address & 1023;
+            var tlbEntry = _tlb[index];
+            if (tlbEntry.Tag == tag)
+            {
+                // TODO handle page boundary
+                // TODO handle page present
+                // TODO handle page ro/rw
+                return GetMemoryAtPhysical(tlbEntry.PagePhysicalAddress + offset);
+            }
+            else
+            {
+                // TODO walk page tables, fill tlb
+                throw new NotImplementedException();
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private unsafe byte* GetMemoryAtPhysical(uint address)
+        {
+            if (address >= Size) throw new IndexOutOfRangeException();
+            fixed (ushort* x = &_memory[0])
+            {
+                return ((byte*)x) + address;
             }
         }
     }
