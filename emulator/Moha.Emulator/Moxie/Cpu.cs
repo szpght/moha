@@ -56,7 +56,7 @@ namespace Moha.Emulator.Moxie
 
         private bool ExecuteNextInstruction()
         {
-            var instruction = _decoder.Decode(_memory[Ip]);
+            var instruction = _decoder.Decode(_memory.GetShort((uint)Ip * 2));
             //var opcode = instruction.Opcode;
             //int count;
             //_opcodesExecuted.TryGetValue(opcode, out count);
@@ -431,7 +431,8 @@ namespace Moha.Emulator.Moxie
 
         private uint GetLongImmediate()
         {
-            var value = _memory.GetLong((uint)Ip * 2);
+            uint value = _memory.GetShort((uint)Ip * 2);
+            value |= ((uint)_memory.GetShort((uint)Ip * 2 + 2)) << 16;
             //Console.WriteLine($"Long parameter: {value}");
             Ip += 2;
             return value;
@@ -439,9 +440,10 @@ namespace Moha.Emulator.Moxie
 
         private short GetShortSignedImmediate()
         {
-            var value = (short)_memory[Ip++];
+            ushort value = _memory.GetShort((uint)Ip * 2);
+            Ip += 1;
             ///Console.WriteLine($"Long parameter: {value}");
-            return value;
+            return (short)value;
         }
 
         private void Jump(uint address)

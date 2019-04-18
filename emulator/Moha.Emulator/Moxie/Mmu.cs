@@ -14,6 +14,8 @@ namespace Moha.Emulator.Moxie
             CheckMemorySize(size);
             _memory = new ushort[size / 2];
             Size = size;
+            SizeMinus2 = size - 2;
+            SizeMinus4 = size - 4;
             InitializeTlb();
         }
 
@@ -41,11 +43,12 @@ namespace Moha.Emulator.Moxie
         }
 
         public long Size { get; }
+
+        private long SizeMinus2 { get; }
+        private long SizeMinus4 { get; }
         readonly ushort[] _memory;
         private uint _pageDirectory;
         private readonly TlbEntry[] _tlb = new TlbEntry[1024];
-
-        public ushort this[int index] => _memory[index];
 
         public void CopyToPhysical(uint alignedAddress, ReadOnlySpan<byte> source)
         {
@@ -59,7 +62,7 @@ namespace Moha.Emulator.Moxie
 
         public byte GetByte(uint address)
         {
-            if (address >= Size) throw new IndexOutOfRangeException();
+            if (address >= Size) OutOfRange();
             unsafe
             {
                 return *NotCheckedGetMemoryAtPhysical(address);
@@ -68,7 +71,7 @@ namespace Moha.Emulator.Moxie
 
         public ushort GetShort(uint address)
         {
-            if (address > Size - 2) throw new IndexOutOfRangeException();
+            if (address > SizeMinus2) OutOfRange();
             unsafe
             {
                 return *(ushort*)NotCheckedGetMemoryAtPhysical(address);
@@ -77,7 +80,7 @@ namespace Moha.Emulator.Moxie
 
         public uint GetLong(uint address)
         {
-            if (address > Size - 4) throw new IndexOutOfRangeException();
+            if (address > SizeMinus4) OutOfRange();
             unsafe
             {
                 return *(uint*)NotCheckedGetMemoryAtPhysical(address);
@@ -86,7 +89,7 @@ namespace Moha.Emulator.Moxie
 
         public void StoreByte(uint address, byte value)
         {
-            if (address >= Size) throw new IndexOutOfRangeException();
+            if (address >= Size) OutOfRange();
             unsafe
             {
                 *NotCheckedGetMemoryAtPhysical(address) = value;
@@ -95,7 +98,7 @@ namespace Moha.Emulator.Moxie
 
         public void StoreShort(uint address, ushort value)
         {
-            if (address > Size - 2) throw new IndexOutOfRangeException();
+            if (address > SizeMinus2) OutOfRange();
             unsafe
             {
                 *(ushort*)NotCheckedGetMemoryAtPhysical(address) = value;
@@ -104,7 +107,7 @@ namespace Moha.Emulator.Moxie
 
         public void StoreLong(uint address, uint value)
         {
-            if (address > Size - 4) throw new IndexOutOfRangeException();
+            if (address > SizeMinus4) OutOfRange();
             unsafe
             {
                 *(uint*)NotCheckedGetMemoryAtPhysical(address) = value;
@@ -159,6 +162,12 @@ namespace Moha.Emulator.Moxie
             {
                 throw new ArgumentOutOfRangeException("Memory size must be at least 85000 bytes so it lands on LOH");
             }
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        private static void OutOfRange()
+        {
+            throw new IndexOutOfRangeException();
         }
     }
 }
