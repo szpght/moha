@@ -131,20 +131,51 @@ namespace Moha.Emulator.Moxie
 
             if (tlbEntry.tag != tag)
             {
-                tlbEntry = WalkPageTables();
+                tlbEntry = WalkPageTables(address);
             }
 
-            // TODO handle page boundary
             // TODO handle page ro/rw
+
             _tlb[index] = tlbEntry;
             return NotCheckedGetMemoryAtPhysical(tlbEntry.PagePhysicalAddress + offset);
         }
 
-        private TlbEntry WalkPageTables()
+        private TlbEntry WalkPageTables(uint address)
         {
-            // TODO walk page tables, fill tlb
-            // TODO check if physical address do not exceed range
-            throw new IndexOutOfRangeException("Invalid memory access");
+            TlbEntry entry = default;
+
+            var pageDirectoryIndex = address >> 22;
+            var pageTableIndex = (address >> 12) & 1023;
+            var pageDirectoryEntry = GetLongPhysical(_pageDirectory + pageDirectoryIndex * 4);
+            if ((pageDirectoryEntry & 1) == 0)
+            {
+                throw new MemoryAccessException(MemoryAccessStatus.PageDirectoryEntryNotPresent);
+            }
+
+            // TODO use correct mask for pageDirectoryEntry
+            var pageTableEntry = GetLongPhysical(pageDirectoryEntry - 1 + pageTableIndex * 4);
+            if ((pageTableEntry & 1) == 0)
+            {
+                throw new MemoryAccessException(MemoryAccessStatus.PageNotPresent);
+            }
+
+            var pageTableEntryAddress = pageTableEntry & 0xFFFFFC00;
+            if (pageTableEntryAddress >= Size)
+            {
+                throw new MemoryAccessException(MemoryAccessStatus.PhysicalAddressOutOfRange);
+            }
+
+            entry.entry = pageTableEntry;
+            entry.tag = address >> 12;
+            return entry;
+        }
+
+        private uint GetLongPhysical(uint address)
+        {
+            unsafe
+            {
+                return *(uint*)NotCheckedGetMemoryAtPhysical(address);
+            }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
