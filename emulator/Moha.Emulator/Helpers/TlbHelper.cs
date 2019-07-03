@@ -39,6 +39,11 @@ namespace Moha.Emulator.Helpers
             // this doesnt work for memory sizes where one page doesnt cover whole memory
             var memoryAreaCoveredByTable = 4096 * 1024;
             var tablesNeeded = memorySize / memoryAreaCoveredByTable + 1;
+            if (memorySize % memoryAreaCoveredByTable != 0)
+            {
+                tablesNeeded++;
+            }
+
             var entries = new uint[tablesNeeded * 1024];
             var location = memorySize - 4096 * tablesNeeded;
             for (int i = 0, addr = location + 4096; i < tablesNeeded - 1; i++, addr += 4096)

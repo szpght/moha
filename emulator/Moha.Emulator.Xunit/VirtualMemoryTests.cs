@@ -7,7 +7,7 @@ namespace Moha.Emulator.Xunit
 {
     public class VirtualMemoryTests
     {
-        const int MemorySize = 4 * 1024 * 1024;
+        const int MemorySize = 8 * 1024 * 1024;
         readonly Mmu _mmu = new Mmu(MemorySize);
 
         [ReadableFact("Byte from virtual address with empty TLB can be read")]

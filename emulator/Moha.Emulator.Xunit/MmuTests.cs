@@ -8,7 +8,7 @@ namespace Moha.Emulator.Xunit
 {
     public class MmuTests
     {
-        const int MemorySize = 85000;
+        const int MemorySize = 128 * 1024;
         const uint DestinationOffset = MemorySize / 2;
         const int DestinationIndex = (int)DestinationOffset / 2;
         readonly ReadOnlyMemory<byte> SampleData = new byte[] { 0xFF, 0xFF, 0xFF, 0xDE, 0xAD, 0xBE, 0xEF, 0xFF };
