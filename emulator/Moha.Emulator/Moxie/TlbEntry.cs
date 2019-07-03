@@ -10,6 +10,6 @@
 
         public static uint TagFromAddress(uint virtualAddress) => virtualAddress >> 12;
         public static int IndexFromTag(uint tag) => (int)(tag & 1023);
-        public static uint OffsetFromAddress(uint address) => address & 1023;
+        public static uint OffsetFromAddress(uint address) => address & 4095;
     }
 }

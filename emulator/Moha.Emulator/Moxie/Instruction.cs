@@ -3,7 +3,7 @@
 namespace Moha.Emulator.Moxie
 {
     [DebuggerDisplay("{ToString(),nq}")]
-    struct Instruction
+    readonly struct Instruction
     {
         public readonly Opcode Opcode;
         public readonly int RegisterA;

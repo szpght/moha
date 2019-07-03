@@ -1,5 +1,6 @@
 ﻿using Moha.Emulator.Moxie;
 using System;
+using System.Linq;
 
 namespace Moha.Emulator.Helpers
 {
@@ -31,6 +32,27 @@ namespace Moha.Emulator.Helpers
             physicalAddress |= rw ? PageTableFlags.Rw : 0;
             physicalAddress |= supervisor ? PageTableFlags.Supervisor : 0;
             return ((int)pageDirectoryIndex, (int)pageTableIndex, BitConverter.GetBytes(physicalAddress));
+        }
+
+        internal static (uint location, byte[] data) PrepareIdentityMap(int memorySize)
+        {
+            // this doesnt work for memory sizes where one page doesnt cover whole memory
+            var memoryAreaCoveredByTable = 4096 * 1024;
+            var tablesNeeded = memorySize / memoryAreaCoveredByTable + 1;
+            var entries = new uint[tablesNeeded * 1024];
+            var location = memorySize - 4096 * tablesNeeded;
+            for (int i = 0, addr = location + 4096; i < tablesNeeded - 1; i++, addr += 4096)
+            {
+                entries[i] = (uint) addr | PageTableFlags.Present | PageTableFlags.Rw;
+            }
+
+            for (int i = 1024, addr = 0; addr < location; i++, addr += 4096)
+            {
+                entries[i] = (uint) addr | PageTableFlags.Present | PageTableFlags.Rw;
+            }
+
+            var data = entries.Select(BitConverter.GetBytes).SelectMany(x => x).ToArray();
+            return ((uint)location, data);
         }
     }
 }

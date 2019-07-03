@@ -6,7 +6,8 @@ using System.Text;
 
 namespace Moha.Emulator.Moxie
 {
-    class Cpu
+    class Cpu<TMemoryAccessor>
+        where TMemoryAccessor : struct, IMemoryAccessor
     {
         const int FP_REGISTER_INDEX = 0;
         const int SP_REGISTER_INDEX = 1;
@@ -41,9 +42,11 @@ namespace Moha.Emulator.Moxie
         readonly uint[] Registers = new uint[16];
         readonly uint[] SpecialRegisters = new uint[10];
 
+        readonly TMemoryAccessor _memoryAccessor = default;
+
         public void Execute(int startAddress)
         {
-            Sp = (uint)(_memory.Size - 4);
+            Sp = (uint)(_memory._pageDirectory - 4); // TODO handle this better
             Fp = Sp;
             Ip = startAddress / 2;
 
@@ -56,7 +59,7 @@ namespace Moha.Emulator.Moxie
 
         private bool ExecuteNextInstruction()
         {
-            var instruction = _decoder.Decode(_memory.GetShort((uint)Ip * 2));
+            var instruction = _decoder.Decode(_memoryAccessor.GetShort(_memory, (uint)Ip * 2));
             //var opcode = instruction.Opcode;
             //int count;
             //_opcodesExecuted.TryGetValue(opcode, out count);
@@ -219,29 +222,29 @@ namespace Moha.Emulator.Moxie
                     break;
 
                 case Opcode.LdB:
-                    Registers[instruction.RegisterA] = _memory.GetByte(Registers[instruction.RegisterB]);
+                    Registers[instruction.RegisterA] = _memoryAccessor.GetByte(_memory, Registers[instruction.RegisterB]);
                     break;
 
                 case Opcode.LdL:
-                    Registers[instruction.RegisterA] = _memory.GetLong(Registers[instruction.RegisterB]);
+                    Registers[instruction.RegisterA] = _memoryAccessor.GetLong(_memory, Registers[instruction.RegisterB]);
                     break;
 
                 case Opcode.LdS:
-                    Registers[instruction.RegisterA] = _memory.GetShort(Registers[instruction.RegisterB]);
+                    Registers[instruction.RegisterA] = _memoryAccessor.GetShort(_memory, Registers[instruction.RegisterB]);
                     break;
 
                 case Opcode.LdaB:
-                    Registers[instruction.RegisterA] = _memory.GetByte(GetLongImmediate());
+                    Registers[instruction.RegisterA] = _memoryAccessor.GetByte(_memory, GetLongImmediate());
                     Ip += 2;
                     break;
 
                 case Opcode.LdaL:
-                    Registers[instruction.RegisterA] = _memory.GetLong(GetLongImmediate());
+                    Registers[instruction.RegisterA] = _memoryAccessor.GetLong(_memory, GetLongImmediate());
                     Ip += 2;
                     break;
 
                 case Opcode.LdaS:
-                    Registers[instruction.RegisterA] = _memory.GetShort(GetLongImmediate());
+                    Registers[instruction.RegisterA] = _memoryAccessor.GetShort(_memory, GetLongImmediate());
                     Ip += 2;
                     break;
 
@@ -259,17 +262,17 @@ namespace Moha.Emulator.Moxie
 
                 case Opcode.LdoB:
                     address = (uint)(Registers[instruction.RegisterB] + GetShortSignedImmediate());
-                    Registers[instruction.RegisterA] = _memory.GetByte(address);
+                    Registers[instruction.RegisterA] = _memoryAccessor.GetByte(_memory, address);
                     break;
 
                 case Opcode.LdoL:
                     address = (uint)(Registers[instruction.RegisterB] + GetShortSignedImmediate());
-                    Registers[instruction.RegisterA] = _memory.GetLong(address);
+                    Registers[instruction.RegisterA] = _memoryAccessor.GetLong(_memory, address);
                     break;
 
                 case Opcode.LdoS:
                     address = (uint)(Registers[instruction.RegisterB] + GetShortSignedImmediate());
-                    Registers[instruction.RegisterA] = _memory.GetShort(address);
+                    Registers[instruction.RegisterA] = _memoryAccessor.GetShort(_memory, address);
                     break;
 
                 case Opcode.Lshr:
@@ -343,42 +346,42 @@ namespace Moha.Emulator.Moxie
                     break;
 
                 case Opcode.StB:
-                    _memory.StoreByte(Registers[instruction.RegisterA], (byte)Registers[instruction.RegisterB]);
+                    _memoryAccessor.StoreByte(_memory, Registers[instruction.RegisterA], (byte)Registers[instruction.RegisterB]);
                     break;
 
                 case Opcode.StL:
-                    _memory.StoreLong(Registers[instruction.RegisterA], Registers[instruction.RegisterB]);
+                    _memoryAccessor.StoreLong(_memory, Registers[instruction.RegisterA], Registers[instruction.RegisterB]);
                     break;
 
                 case Opcode.StS:
-                    _memory.StoreShort(Registers[instruction.RegisterA], (ushort)Registers[instruction.RegisterB]);
+                    _memoryAccessor.StoreShort(_memory, Registers[instruction.RegisterA], (ushort)Registers[instruction.RegisterB]);
                     break;
 
                 case Opcode.StaB:
-                    _memory.StoreByte(GetLongImmediate(), (byte)Registers[instruction.RegisterA]);
+                    _memoryAccessor.StoreByte(_memory, GetLongImmediate(), (byte)Registers[instruction.RegisterA]);
                     break;
 
                 case Opcode.StaL:
-                    _memory.StoreLong(GetLongImmediate(), Registers[instruction.RegisterA]);
+                    _memoryAccessor.StoreLong(_memory, GetLongImmediate(), Registers[instruction.RegisterA]);
                     break;
 
                 case Opcode.StaS:
-                    _memory.StoreShort(GetLongImmediate(), (ushort)Registers[instruction.RegisterA]);
+                    _memoryAccessor.StoreShort(_memory, GetLongImmediate(), (ushort)Registers[instruction.RegisterA]);
                     break;
 
                 case Opcode.StoB:
                     address = (uint)(Registers[instruction.RegisterA] + GetShortSignedImmediate());
-                    _memory.StoreByte(address, (byte)Registers[instruction.RegisterB]);
+                    _memoryAccessor.StoreByte(_memory, address, (byte)Registers[instruction.RegisterB]);
                     break;
 
                 case Opcode.StoL:
                     address = (uint)(Registers[instruction.RegisterA] + GetShortSignedImmediate());
-                    _memory.StoreLong(address, Registers[instruction.RegisterB]);
+                    _memoryAccessor.StoreLong(_memory, address, Registers[instruction.RegisterB]);
                     break;
 
                 case Opcode.StoS:
                     address = (uint)(Registers[instruction.RegisterA] + GetShortSignedImmediate());
-                    _memory.StoreShort(address, (ushort)Registers[instruction.RegisterB]);
+                    _memoryAccessor.StoreShort(_memory, address, (ushort)Registers[instruction.RegisterB]);
                     break;
 
                 case Opcode.Sub:
@@ -431,8 +434,8 @@ namespace Moha.Emulator.Moxie
 
         private uint GetLongImmediate()
         {
-            uint value = _memory.GetShort((uint)Ip * 2);
-            value |= ((uint)_memory.GetShort((uint)Ip * 2 + 2)) << 16;
+            uint value = _memoryAccessor.GetShort(_memory, (uint)Ip * 2);
+            value |= ((uint)_memoryAccessor.GetShort(_memory, (uint)Ip * 2 + 2)) << 16;
             //Console.WriteLine($"Long parameter: {value}");
             Ip += 2;
             return value;
@@ -440,7 +443,7 @@ namespace Moha.Emulator.Moxie
 
         private short GetShortSignedImmediate()
         {
-            ushort value = _memory.GetShort((uint)Ip * 2);
+            ushort value = _memoryAccessor.GetShort(_memory, (uint)Ip * 2);
             Ip += 1;
             ///Console.WriteLine($"Long parameter: {value}");
             return (short)value;
@@ -476,12 +479,12 @@ namespace Moha.Emulator.Moxie
         private void Push(int register, uint value)
         {
             Registers[register] -= 4;
-            _memory.StoreLong(Registers[register], value);
+            _memoryAccessor.StoreLong(_memory, Registers[register], value);
         }
 
         private uint Pop(int register)
         {
-            var value = _memory.GetLong(Registers[register]);
+            var value = _memoryAccessor.GetLong(_memory, Registers[register]);
             Registers[register] += 4;
             return value;
         }

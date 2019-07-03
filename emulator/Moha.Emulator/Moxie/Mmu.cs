@@ -24,7 +24,7 @@ namespace Moha.Emulator.Moxie
         private long SizeMinus2 { get; }
         private long SizeMinus4 { get; }
         readonly ushort[] _memory;
-        private uint _pageDirectory;
+        public uint _pageDirectory;
         internal readonly TlbEntry[] _tlb = new TlbEntry[1024];
 
         public void CopyToPhysical(uint alignedAddress, ReadOnlySpan<byte> source)
@@ -121,6 +121,11 @@ namespace Moha.Emulator.Moxie
             if (size < 85000)
             {
                 throw new ArgumentOutOfRangeException("Memory size must be at least 85000 bytes so it lands on LOH");
+            }
+
+            if (size % 4096 != 0)
+            {
+                throw new ArgumentOutOfRangeException("Memory size must be aligned to 4 KiB");
             }
         }
 

@@ -1,4 +1,6 @@
 ﻿using Moha.Emulator.Helpers;
+using System;
+using System.Diagnostics;
 
 namespace Moha.Emulator.Moxie
 {
@@ -13,14 +15,41 @@ namespace Moha.Emulator.Moxie
             {
                 _tlb[i].tag = uint.MaxValue;
             }
-
-            var (index, entry) = TlbHelper.CreateTlbEntry(4096, 8192);
-            _tlb[index] = entry;
         }
 
         public unsafe byte GetVirtualByte(uint address)
         {
             return *GetMemoryAtVirtual(address, false);
+        }
+
+        public unsafe ushort GetVirtualShort(uint address)
+        {
+            var value = (ushort*)GetMemoryAtVirtual(address, false);
+            return *value;
+        }
+
+        public unsafe uint GetVirtualLong(uint address)
+        {
+            var value = (uint*)GetMemoryAtVirtual(address, false);
+            return *value;
+        }
+
+        public unsafe void StoreVirtualByte(uint address, byte value)
+        {
+            var destination = GetMemoryAtVirtual(address, false);
+            *destination = value;
+        }
+
+        public unsafe void StoreVirtualShort(uint address, ushort value)
+        {
+            var destination = (ushort*)GetMemoryAtVirtual(address, false);
+            *destination = value;
+        }
+
+        public unsafe void StoreVirtualLong(uint address, uint value)
+        {
+            var destination = (uint*)GetMemoryAtVirtual(address, false);
+            *destination = value;
         }
 
         private unsafe byte* GetMemoryAtVirtual(uint address, bool write)
