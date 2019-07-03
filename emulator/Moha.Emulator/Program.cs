@@ -6,15 +6,39 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 [assembly: InternalsVisibleTo("Moha.Emulator.Tests")]
+[assembly: InternalsVisibleTo("Moha.Emulator.Xunit")]
 
 namespace Moha.Emulator
 {
     class Program
     {
+        public readonly IEnumerable<Opcode> SixBitOpcodes = new[]
+        {
+            Opcode.Beq, Opcode.Bge, Opcode.Bgeu,
+            Opcode.Bgt, Opcode.Bgtu, Opcode.Ble, Opcode.Bleu,
+            Opcode.Blt, Opcode.Bltu, Opcode.Bne
+        };
+
+        public readonly IEnumerable<Opcode> FourBitOpcodes = new[]
+        {
+            Opcode.Dec, Opcode.Gsr, Opcode.Inc, Opcode.Ssr
+        };
+
         static void Main(string[] args)
         {
+            var a = new Program();
+            var b = Enum.GetValues(typeof(Opcode))
+                .Cast<Opcode>()
+                .Except(a.SixBitOpcodes)
+                .Except(a.FourBitOpcodes)
+                .Select(x => $"Opcode.{x.ToString()}")
+                .ToList();
+            Console.WriteLine(string.Join(", ", b));
+            return;
+
             const int memorySize = 16 * 1024 * 1024;
             var mmu = new Mmu(memorySize);
             var decoder = new InstructionDecoder();

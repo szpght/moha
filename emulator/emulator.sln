@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28714.193
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moha.Emulator", "Moha.Emulator\Moha.Emulator.csproj", "{A7EB6AAF-7C18-46FF-BBA0-FD48E6257E68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Moha.Emulator", "Moha.Emulator\Moha.Emulator.csproj", "{A7EB6AAF-7C18-46FF-BBA0-FD48E6257E68}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Moha.Emulator.Tests", "Moha.Emulator.Tests\Moha.Emulator.Tests.fsproj", "{93DFE6AB-E49C-443A-A953-9927403AEF9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Moha.Emulator.Xunit", "Moha.Emulator.Xunit\Moha.Emulator.Xunit.csproj", "{109E7C55-B35B-4A57-9FD0-8E3DE57EA7F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{A7EB6AAF-7C18-46FF-BBA0-FD48E6257E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7EB6AAF-7C18-46FF-BBA0-FD48E6257E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7EB6AAF-7C18-46FF-BBA0-FD48E6257E68}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93DFE6AB-E49C-443A-A953-9927403AEF9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93DFE6AB-E49C-443A-A953-9927403AEF9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93DFE6AB-E49C-443A-A953-9927403AEF9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93DFE6AB-E49C-443A-A953-9927403AEF9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{109E7C55-B35B-4A57-9FD0-8E3DE57EA7F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{109E7C55-B35B-4A57-9FD0-8E3DE57EA7F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{109E7C55-B35B-4A57-9FD0-8E3DE57EA7F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{109E7C55-B35B-4A57-9FD0-8E3DE57EA7F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
