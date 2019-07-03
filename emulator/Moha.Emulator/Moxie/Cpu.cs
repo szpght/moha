@@ -6,8 +6,9 @@ using System.Text;
 
 namespace Moha.Emulator.Moxie
 {
-    class Cpu<TMemoryAccessor>
+    class Cpu<TMemoryAccessor, TExecutionTracing>
         where TMemoryAccessor : struct, IMemoryAccessor
+        where TExecutionTracing : struct, IExecutionTracing
     {
         const int FP_REGISTER_INDEX = 0;
         const int SP_REGISTER_INDEX = 1;
@@ -23,6 +24,7 @@ namespace Moha.Emulator.Moxie
         {
             _memory = mmu;
             _decoder = decoder;
+            _tracing.Initialize();
         }
 
         int Ip;
@@ -43,6 +45,7 @@ namespace Moha.Emulator.Moxie
         readonly uint[] SpecialRegisters = new uint[10];
 
         readonly TMemoryAccessor _memoryAccessor = default;
+        readonly TExecutionTracing _tracing = default;
 
         public void Execute(int startAddress)
         {
@@ -60,12 +63,7 @@ namespace Moha.Emulator.Moxie
         private bool ExecuteNextInstruction()
         {
             var instruction = _decoder.Decode(_memoryAccessor.GetShort(_memory, (uint)Ip * 2));
-            //var opcode = instruction.Opcode;
-            //int count;
-            //_opcodesExecuted.TryGetValue(opcode, out count);
-            //count += 1;
-            //_opcodesExecuted[opcode] = count;
-            //Console.WriteLine($"{Ip * 2:X}: {instruction}");
+            _tracing.TraceCall(instruction, Ip);
             Ip++;
 
             int signedA, signedB;

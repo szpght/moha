@@ -9,11 +9,65 @@ using System.Diagnostics;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Moha.Emulator.Helpers;
+using BenchmarkDotNet.Running;
+using BenchmarkDotNet.Attributes;
 
 [assembly: InternalsVisibleTo("Moha.Emulator.Xunit")]
 
 namespace Moha.Emulator
 {
+    public class Benchmark
+    {
+        Cpu<PhysicalMemoryAccessor, NoTracing> cpu1;
+        Cpu<PhysicalMemoryAccessor, NoTracing> cpu2;
+        uint startAddress;
+
+        public Benchmark()
+        {
+            const int memorySize = 32 * 1024 * 1024;
+            var mmu = new Mmu(memorySize);
+            var decoder = new InstructionDecoder();
+            cpu1 = new Cpu<PhysicalMemoryAccessor, NoTracing>(mmu, decoder);
+            cpu2 = new Cpu<PhysicalMemoryAccessor, NoTracing>(mmu, decoder);
+            mmu._pageDirectory = memorySize - 4;
+
+            var elf = ELFReader.Load<uint>("D:\\fibo");
+            startAddress = elf.EntryPoint;
+            var loadableSegments = elf.Segments.Where(s => s.Type == SegmentType.Load);
+            foreach (var segment in loadableSegments)
+            {
+                var content = segment.GetMemoryContents();
+                var address = segment.PhysicalAddress;
+                mmu.CopyToPhysical(address, content);
+            }
+
+
+        }
+
+        [Benchmark]
+        public void Enabled()
+        {
+            cpu1.Execute((int)startAddress);
+        }
+
+                [Benchmark]
+        public void Enabled2()
+        {
+            cpu1.Execute((int)startAddress);
+        }
+
+        [Benchmark]
+        public void Disabled()
+        {
+            cpu2.Execute((int)startAddress);
+        }
+                [Benchmark]
+        public void Disabled2()
+        {
+            cpu2.Execute((int)startAddress);
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -21,9 +75,9 @@ namespace Moha.Emulator
             const int memorySize = 32 * 1024 * 1024;
             var mmu = new Mmu(memorySize);
             var decoder = new InstructionDecoder();
-            var cpu = new Cpu<VirtualMemoryAccessor>(mmu, decoder);
+            var cpu = new Cpu<PhysicalMemoryAccessor, Tracing>(mmu, decoder);
 
-            if (cpu is Cpu<VirtualMemoryAccessor>)
+            if (false /*cpu is Cpu<VirtualMemoryAccessor>*/)
             {
                 var (location, data) = TlbHelper.PrepareIdentityMap(memorySize);
                 mmu.CopyToPhysical(location, data);
@@ -33,7 +87,7 @@ namespace Moha.Emulator
             {
                 mmu._pageDirectory = memorySize - 4;
             }
-
+            
             var elf = ELFReader.Load<uint>("D:\\fibo");
             var startAddress = elf.EntryPoint;
             var loadableSegments = elf.Segments.Where(s => s.Type == SegmentType.Load);
