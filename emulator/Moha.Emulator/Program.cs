@@ -99,11 +99,6 @@ namespace Moha.Emulator
             }
 
             cpu.Execute((int)startAddress);
-            var hehe = cpu._opcodesExecuted.OrderBy(x => x.Value);
-            foreach (var xxx in hehe)
-            {
-                Console.WriteLine($"{xxx.Key}: {xxx.Value}");
-            }
             var stoper = Stopwatch.StartNew();
             for (var i = 0; i < 10; ++i)
             {

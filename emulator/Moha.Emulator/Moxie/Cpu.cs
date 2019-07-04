@@ -6,17 +6,14 @@ using System.Text;
 
 namespace Moha.Emulator.Moxie
 {
-    class Cpu<TMemoryAccessor, TExecutionTracing>
+    partial class Cpu<TMemoryAccessor, TExecutionTracing>
         where TMemoryAccessor : struct, IMemoryAccessor
         where TExecutionTracing : struct, IExecutionTracing
     {
-        const int FP_REGISTER_INDEX = 0;
-        const int SP_REGISTER_INDEX = 1;
         readonly Mmu _memory;
         readonly InstructionDecoder _decoder;
 
         long _instructionsExecuted = 0;
-        public readonly Dictionary<Opcode, int> _opcodesExecuted = new Dictionary<Opcode, int>();
         public long InstructionsExecuted => _instructionsExecuted;
         public void Reset() => _instructionsExecuted = 0;
 
@@ -30,19 +27,6 @@ namespace Moha.Emulator.Moxie
         int Ip;
         int CompareStatusSigned;
         int CompareStatusUnsigned;
-        uint Fp
-        {
-            get => Registers[FP_REGISTER_INDEX];
-            set => Registers[FP_REGISTER_INDEX] = value;
-        }
-        uint Sp
-        {
-            get => Registers[SP_REGISTER_INDEX];
-            set => Registers[SP_REGISTER_INDEX] = value;
-        }
-
-        readonly uint[] Registers = new uint[16];
-        readonly uint[] SpecialRegisters = new uint[10];
 
         readonly TMemoryAccessor _memoryAccessor = default;
         readonly TExecutionTracing _tracing = default;
