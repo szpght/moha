@@ -21,5 +21,10 @@ namespace Moha.Emulator.Moxie
             _opcodeCounts[opcode] = count;
             Console.WriteLine($"{ip * 2:X}: {instruction}");
         }
+
+        public void TraceImmediate(uint value)
+        {
+            Console.WriteLine($"Immediate: {value}");
+        }
     }
 }

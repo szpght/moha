@@ -371,7 +371,8 @@ namespace Moha.Emulator.Moxie
                     break;
 
                 case Opcode.Swi:
-                    Exception(GetLongImmediate());
+                    SwiRequestIndex = GetLongImmediate();
+                    Exception(ExceptionReason.SoftwareInterrupt);
                     break;
 
                 case Opcode.Udiv:
@@ -409,8 +410,9 @@ namespace Moha.Emulator.Moxie
             return true;
         }
 
-        private void Exception(uint type)
+        private void Exception(ExceptionReason reason)
         {
+            ExceptionReason = reason;
             throw new NotImplementedException();
         }
 
@@ -418,7 +420,7 @@ namespace Moha.Emulator.Moxie
         {
             uint value = _memoryAccessor.GetShort(_memory, (uint)Ip * 2);
             value |= ((uint)_memoryAccessor.GetShort(_memory, (uint)Ip * 2 + 2)) << 16;
-            //Console.WriteLine($"Long parameter: {value}");
+            _tracing.TraceImmediate(value);
             Ip += 2;
             return value;
         }
@@ -427,7 +429,7 @@ namespace Moha.Emulator.Moxie
         {
             ushort value = _memoryAccessor.GetShort(_memory, (uint)Ip * 2);
             Ip += 1;
-            ///Console.WriteLine($"Long parameter: {value}");
+            _tracing.TraceImmediate(value);
             return (short)value;
         }
 

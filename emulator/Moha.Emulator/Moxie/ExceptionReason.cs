@@ -1,6 +1,6 @@
 ﻿namespace Moha.Emulator.Moxie
 {
-    enum ExceptionTrigger
+    enum ExceptionReason
     {
         SoftwareInterrupt = 0,
         Irq = 1,

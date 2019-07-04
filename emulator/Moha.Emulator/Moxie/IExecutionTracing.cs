@@ -4,5 +4,6 @@
     {
         void Initialize();
         void TraceCall(in Instruction instruction, int ip);
+        void TraceImmediate(uint value);
     }
 }

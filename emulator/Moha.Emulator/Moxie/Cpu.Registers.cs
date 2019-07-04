@@ -42,9 +42,9 @@
             set => SpecialRegisters[SR_EXCEPTION_HANDLER_INDEX] = value;
         }
 
-        ExceptionTrigger ExceptionTrigger
+        ExceptionReason ExceptionReason
         {
-            get => (ExceptionTrigger)SpecialRegisters[SR_EXCEPTION_TRIGGER_INDEX];
+            get => (ExceptionReason)SpecialRegisters[SR_EXCEPTION_TRIGGER_INDEX];
             set => SpecialRegisters[SR_EXCEPTION_TRIGGER_INDEX] = (uint)value;
         }
 
